@@ -85,10 +85,13 @@ const Header = () => {
                     <div className="absolute top-full left-0 w-64 bg-background border border-border shadow-card p-4 animate-fade-in">
                       <div className="grid gap-2">
                         <Link to={`${link.href}/shoes`} className="text-sm hover:text-muted-foreground transition-colors py-1">
-                          Shoes
+                          Neck-Tee
                         </Link>
                         <Link to={`${link.href}/clothing`} className="text-sm hover:text-muted-foreground transition-colors py-1">
-                          Clothing
+                          V-Tee
+                        </Link>
+                        <Link to={`${link.href}/accessories`} className="text-sm hover:text-muted-foreground transition-colors py-1">
+                          Sweater
                         </Link>
                         <Link to={`${link.href}/accessories`} className="text-sm hover:text-muted-foreground transition-colors py-1">
                           Accessories
