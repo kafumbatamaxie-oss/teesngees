@@ -7,6 +7,8 @@ import { CartProvider } from "@/context/CartContext";
 import Index from "./pages/Index";
 import ProductDetail from "./pages/ProductDetail";
 import NotFound from "./pages/NotFound";
+import { HashRouter } from "react-router-dom";
+
 
 const queryClient = new QueryClient();
 
@@ -16,14 +18,15 @@ const App = () => (
       <CartProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        
+        <HashRouter>
           <Routes>
-            <Route path="/" element={<Index />}  />
+            <Route path="/" element={<Index />} />
             <Route path="/product/:id" element={<ProductDetail />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
+
       </CartProvider>
     </TooltipProvider>
   </QueryClientProvider>
