@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-// import TrendingProducts from "@/components/TrendingProducts";
+import TrendingProducts from "@/components/TrendingProducts";
 // import FeaturedCollections from "@/components/FeaturedCollections";
 // import BestSellers from "@/components/BestSellers";
 // import MembershipBanner from "@/components/MembershipBanner";
@@ -14,8 +14,8 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        {/* 
         <TrendingProducts />
+        {/* 
         <FeaturedCollections />
         <BestSellers />
         <ShopByCategory />
