@@ -56,7 +56,7 @@ const Header = () => {
                 <img
                     src="/images/logo-3.png"
                     alt="TeesNgees Logo"
-                    className="h-16 w-auto"
+                    className="h-8 sm:h-16 w-auto"
                 />
             </Link>
 

@@ -163,3 +163,7 @@ export const featuredCollections = [
   },
 ];
 
+
+export const GOLD = "#B7975A"
+
+// export const GOLD = "#7e5ab7ff"
