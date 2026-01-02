@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import ProductDetail from "./pages/ProductDetail";
 import NotFound from "./pages/NotFound";
 import { HashRouter } from "react-router-dom";
+import Shop from "./pages/Shop";
 
 
 const queryClient = new QueryClient();
@@ -23,6 +24,8 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/shop/:category" element={<Shop />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </HashRouter>

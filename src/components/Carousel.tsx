@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "./ui/button"
 import { GOLD } from "@/data/products"
+import { Link } from "react-router-dom"
 
 interface CarouselSlide {
   id: number
@@ -15,6 +16,8 @@ interface CarouselSlide {
   mobileImage?: string
   cta: string
   ctaSecondary?: string
+  ctaLink?: string
+  ctaSecondaryLink?: string
 }
 
 
@@ -133,11 +136,11 @@ export function Carousel({ slides }: { slides: CarouselSlide[] }) {
                   </p>
 
                   <div className="flex flex-wrap gap-4">
-                    <Button variant="nike" size="xl">
-                      {slide.cta}
+                    <Button variant="nike" size="xl" asChild>
+                      <Link to={"/shop"}>{slide.cta}</Link>
                     </Button>
-                    <Button variant="nikeOutline" size="xl">
-                      {slide.ctaSecondary}
+                    <Button variant="nikeOutline" size="xl" asChild>
+                      <Link to={slide.ctaSecondaryLink}>{slide.ctaSecondary}</Link>
                     </Button>
                   </div>
                 </div>

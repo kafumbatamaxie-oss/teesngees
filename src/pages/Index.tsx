@@ -8,10 +8,12 @@ import CartDrawer from "@/components/CartDrawer";
 import ShopByCategory from "@/components/ShopByCatogry";
 import HeroCarousel from "@/components/HeroCarousel";
 import PromoMarquee from "@/components/PromoMarquee";
+import DeliveryMarquee from "@/components/DeliveryMarquee";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <DeliveryMarquee />
       <Header />
       <main>
         <HeroCarousel />

@@ -78,7 +78,7 @@ export const products: Product[] = [
     originalPrice : "350",
     isBestSeller: false,
     isNew: false,
-    image: "/images/",
+    image: "/images/Kapa-La-Duma-V-Tee2.jpg",
     images: ["/images/Kapa-La-Duma-V-Tee2.jpg", "/images/Kapa-La-Duma-V-Tee5.jpg", "/images/Kapa-La-Duma-V-Tee3.jpg"],
     colors: ["Black", "White"],
     sizes: ["S", "M", "L", "XL", "XXL"],
@@ -146,6 +146,10 @@ export const featuredCollections = [
     description: "Iconic Cape Town map and city-inspired designs",
     image: "/images/collections/P220421144804_Top_CR2_4-scaled.jpg",
     link: "/collections/cape-town",
+    cta: "Shop Now",
+    ctaLink: "/shop?category=men",
+    ctaSecondary: "Explore",
+    ctaSecondaryLink: "/shop",
   },
   {
     id: "2",
@@ -153,6 +157,9 @@ export const featuredCollections = [
     description: "Bold township culture designs rooted in local identity",
     image: "/images/collections/Plain-Map-Raglan-Sweater2.jpg",
     link: "/collections/township",
+    ctaLink: "/shop?category=women",
+    ctaSecondary: "Explore",
+    ctaSecondaryLink: "/shop",
   },
   {
     id: "3",
@@ -160,6 +167,9 @@ export const featuredCollections = [
     description: "African-inspired graphics celebrating heritage and pride",
     image: "/images/collections/P220421132112_full-body-tall_CR2_8-scaled.jpg",
     link: "/collections/african-roots",
+    ctaLink: "/shop?category=kids",
+    ctaSecondary: "Explore",
+    ctaSecondaryLink: "/shop",
   },
 ];
 

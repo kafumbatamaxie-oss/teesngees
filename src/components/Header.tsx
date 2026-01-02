@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Search, ShoppingBag, Heart, Menu, X, ChevronDown } from "lucide-react";
+import { Search, ShoppingBag, Heart, Menu, X, ChevronDown, Phone } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { categories } from "@/data/products";
 import MobileSearchDrawer from "./MobileSearchDrawer";
@@ -26,7 +26,14 @@ const Header = () => {
         <div className="bg-secondary">
           <div className="container flex items-center justify-between py-2 text-xs">
             <div className="flex items-center gap-4">
-              <span className="font-medium">Free Shipping on Orders R500+</span>
+              <Link
+                to="tel:+27790799974"
+                className="flex items-center gap-1 hover:text-gold transition"
+                aria-label="Call TeesnGees"
+              >
+                <Phone className="w-4 h-4" />
+                <span>+27 79 079 9974</span>
+              </Link>
             </div>
             <div className="hidden md:flex items-center gap-4">
               <Link to="/stores" className="hover:text-muted-foreground transition-colors">
