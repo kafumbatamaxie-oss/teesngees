@@ -104,7 +104,7 @@ export function Carousel({ slides }: { slides: CarouselSlide[] }) {
                     }
                   `}
                 >
-                  <p className="text-sm font-medium uppercase tracking-[0.2em] mb-4 text-gray-300">
+                  <p className="text-sm font-medium uppercase tracking-[0.2em] mb-4 text-gray-400">
                     {slide.tagline}
                   </p>
 
@@ -123,7 +123,7 @@ export function Carousel({ slides }: { slides: CarouselSlide[] }) {
                   </h1>
 
                   <p
-                    className={`text-base md:text-lg text-muted-foreground mb-8 max-w-md leading-relaxed transition-all duration-700 delay-200 ${
+                    className={`text-base md:text-lg text-gray-400 mb-8 max-w-md leading-relaxed transition-all duration-700 delay-200 ${
                       current === idx
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-4"
