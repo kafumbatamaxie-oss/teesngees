@@ -28,8 +28,7 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-lg text-muted-foreground mb-8 max-w-md">
-            Custom printed T-shirts inspired by Cape Town maps, township culture,
-            and African identity. Designed to represent where you come from.
+            Positive african inspired T-shirt made in Cape Town.
           </p>
 
           <div className="flex flex-wrap gap-4">
