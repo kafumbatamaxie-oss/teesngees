@@ -4,17 +4,17 @@ import { Button } from "@/components/ui/button";
 const categories = [
   {
     name: "Men's",
-    image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&q=80",
+    image: "images/men-category.webp",
     link: "/men",
   },
   {
     name: "Women's",
-    image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=80",
+    image: "images/women-category.jpg",
     link: "/women",
   },
   {
     name: "Kids'",
-    image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&q=80",
+    image: "images/kids-category.webp",
     link: "/kids",
   },
 ];

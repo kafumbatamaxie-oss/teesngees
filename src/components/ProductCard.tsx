@@ -30,11 +30,11 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
               Best Seller
             </span>
           )}
-          {product.originalPrice && (
+          {/* {product.originalPrice && (
             <span className="bg-nike-red text-primary-foreground text-xs font-medium px-2 py-1">
               Sale
             </span>
-          )}
+          )} */}
         </div>
 
         {/* Wishlist Button */}
@@ -61,13 +61,13 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
             <p className="text-sm text-muted-foreground">{product.category}</p>
           </div>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center ">
           <span className="font-medium">R{product.price}</span>
-          {product.originalPrice && (
+          {/* {product.originalPrice && (
             <span className="text-muted-foreground line-through text-sm">
               R{product.originalPrice}
             </span>
-          )}
+          )} */}
         </div>
         <p className="text-sm text-muted-foreground mt-1">
           {product.colors.length} Color{product.colors.length > 1 ? "s" : ""}
