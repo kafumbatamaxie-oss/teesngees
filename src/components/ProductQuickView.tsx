@@ -99,7 +99,7 @@ const ProductQuickView = ({ product, onClose }: ProductQuickViewProps) => {
                 <span className="text-xl font-medium">R{product.price}</span>
                 {product.originalPrice && (
                   <span className="text-muted-foreground line-through">
-                    ${product.originalPrice}
+                    R{product.originalPrice}
                   </span>
                 )}
               </div>

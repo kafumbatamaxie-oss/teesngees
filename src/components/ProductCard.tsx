@@ -62,7 +62,7 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <span className="font-medium">${product.price}</span>
+          <span className="font-medium">R{product.price}</span>
           {product.originalPrice && (
             <span className="text-muted-foreground line-through text-sm">
               R{product.originalPrice}
