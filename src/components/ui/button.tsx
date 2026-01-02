@@ -16,7 +16,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline normal-case",
         nike: "bg-primary text-primary-foreground hover:bg-primary/90 active:scale-[0.98] font-semibold rounded-full",
-        nikeOutline: "border-2 border-primary bg-transparent text-foreground hover:bg-primary hover:text-primary-foreground font-semibold rounded-full",
+        nikeOutline: "border-2 border-[#B7975A] bg-transparent text-[#B7975A] hover:bg-primary hover:text-primary-foreground font-semibold rounded-full",
         nikeWhite: "bg-background text-foreground border border-border hover:bg-muted font-semibold rounded-full",
       },
       size: {
