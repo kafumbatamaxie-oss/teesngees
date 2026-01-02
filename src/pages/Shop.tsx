@@ -108,12 +108,19 @@ const Shop = () => {
               Home
             </Link>
             <span>/</span>
-            <span className="text-foreground">Collections</span>
+            <span className="text-foreground">Shop</span>
           </nav>
         </div>
 
         {/* Hero Banner */}
-        <div className="bg-secondary py-12 md:py-16">
+        <div className="relative py-12 md:py-16">
+            <div
+                className="absolute inset-0 z-0 opacity-10  pointer-events-none bg-fixed bg-cover bg-center"
+                style={{
+                    backgroundImage:
+                    "url('/images/bg-all.jpg')",
+                }}
+            />
           <div className="container text-center">
             <h1 className="text-4xl md:text-5xl font-display uppercase mb-4">
               Shop All
