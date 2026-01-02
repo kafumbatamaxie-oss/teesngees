@@ -5,7 +5,7 @@ const MembershipBanner = () => {
     <section className="py-20 bg-primary text-primary-foreground">
       <div className="container text-center">
         <p className="text-sm font-medium uppercase tracking-widest mb-4 text-primary-foreground/70">
-          Nike Membership
+        TeesnGees Membership
         </p>
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-display uppercase mb-6">
           Become a Member
