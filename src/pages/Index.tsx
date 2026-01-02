@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
 import ShopByCategory from "@/components/ShopByCatogry";
 import HeroCarousel from "@/components/HeroCarousel";
+import PromoMarquee from "@/components/PromoMarquee";
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
       <main>
         <HeroCarousel />
         <TrendingProducts />
+        <PromoMarquee />
         <FeaturedCollections />
         <BestSellers />
         <ShopByCategory />

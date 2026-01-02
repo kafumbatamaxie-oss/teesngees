@@ -35,6 +35,7 @@ export default {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
+        gold: "#B7975A",
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
@@ -107,8 +108,14 @@ export default {
           from: { opacity: "0", transform: "scale(0.95)" },
           to: { opacity: "1", transform: "scale(1)" },
         },
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
       },
       animation: {
+        marquee: "marquee 30s linear infinite",
+        "marquee-slow": "marquee 45s linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "slide-in-right": "slide-in-right 0.3s ease-out",
@@ -117,6 +124,5 @@ export default {
         "zoom-in": "zoom-in 0.3s ease-out",
       },
     },
-  },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+}} satisfies Config;
