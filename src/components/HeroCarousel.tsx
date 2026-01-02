@@ -14,7 +14,7 @@ const slides = [
     title: "Cape Town",
     subtitle: "In Every Thread",
     description:
-      "Custom printed T-shirts inspired by Cape Town maps, township culture, and African pride. Designed to represent where you come from.",
+      "Positive african inspired T-shirt made in Cape Town",
     image: heroImage3,
     cta: "Shop Collection",
     ctaSecondary: "Explore Designs",
@@ -25,7 +25,7 @@ const slides = [
     title: "Street",
     subtitle: "Identity",
     description:
-      "Bold township-inspired designs that celebrate local stories, heritage, and everyday culture from the streets of Cape Town.",
+      "inspire love and unity in Africa through T-shirts from the streets of Cape Town.",
     image: heroImage6,
     cta: "View Township Collection",
     ctaSecondary: "Learn More",
