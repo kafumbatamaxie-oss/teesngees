@@ -20,7 +20,7 @@ const promoItems = [
 
 const PromoMarquee = () => {
   return (
-    <div className="bg-white border-y border-border py-8 my-2 overflow-hidden">
+    <div className="bg-[#000] border-y border-border py-8 my-2 overflow-hidden">
       <div className="animate-marquee-slow whitespace-nowrap flex">
         {[...Array(6)].map((_, repeatIndex) => (
           <div key={repeatIndex} className="flex items-center">
@@ -29,14 +29,14 @@ const PromoMarquee = () => {
                 key={`${repeatIndex}-${index}`}
                 className="flex items-center gap-3 mx-12 min-w-max"
               >
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gold/40 flex items-center justify-center">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gold/80 flex items-center justify-center">
                   <item.icon className="w-5 h-5 text-primary" />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-sm font-semibold text-gold">
                     {item.title}
                   </span>
-                  <span className="text-xs text-muted-foreground max-w-[280px] whitespace-normal leading-tight">
+                  <span className="text-xs text-gray-200 max-w-[280px] whitespace-normal leading-tight">
                     {item.description}
                   </span>
                 </div>
