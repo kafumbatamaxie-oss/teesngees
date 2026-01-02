@@ -21,7 +21,7 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
         {/* Badges */}
         <div className="absolute top-3 left-3 flex flex-col gap-1">
           {product.isNew && (
-            <span className="bg-primary text-primary-foreground text-xs font-medium px-2 py-1">
+            <span className="bg-[#B7975A] text-primary-foreground text-xs font-medium px-2 py-1">
               New
             </span>
           )}
