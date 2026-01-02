@@ -1,3 +1,4 @@
+import BestSellers from "@/components/BestSellers";
 import FeaturedCollections from "@/components/FeaturedCollections";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
@@ -17,9 +18,10 @@ const Index = () => {
         <HeroSection />
         <TrendingProducts />
         <FeaturedCollections />
+        <BestSellers />
         {/* 
         
-        <BestSellers />
+        
         <ShopByCategory />
         <MembershipBanner /> */}
       </main>
