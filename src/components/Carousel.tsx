@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "./ui/button"
-import { GOLD } from "@/data/products"
 import { Link } from "react-router-dom"
 
 interface CarouselSlide {
@@ -140,7 +139,7 @@ export function Carousel({ slides }: { slides: CarouselSlide[] }) {
                       <Link to={"/shop"}>{slide.cta}</Link>
                     </Button>
                     <Button variant="nikeOutline" size="xl" asChild>
-                      <Link to={slide.ctaSecondaryLink}>{slide.ctaSecondary}</Link>
+                      <Link to="/shop">{slide.ctaSecondary}</Link>
                     </Button>
                   </div>
                 </div>

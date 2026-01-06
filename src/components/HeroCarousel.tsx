@@ -1,7 +1,3 @@
-import { useState, useEffect, useCallback } from "react";
-import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import useEmblaCarousel from "embla-carousel-react";
 import heroImage3 from "@/assets/3-scaled.jpg";
 import heroImage6 from "@/assets/6-scaled.jpg";
 import heroImage7 from "@/assets/7-scaled.jpg";

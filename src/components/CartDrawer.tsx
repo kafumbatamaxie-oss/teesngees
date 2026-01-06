@@ -2,9 +2,14 @@ import { useEffect } from "react";
 import { X, Plus, Minus, ShoppingBag } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { CheckoutFeedback } from "@/components/checkout/CheckoutFeedback";
 
 const CartDrawer = () => {
   const { items, isCartOpen, setIsCartOpen, totalPrice, updateQuantity, removeFromCart } = useCart();
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
+  const [paymentStatus, setPaymentStatus] = useState<"success" | "error" | null>(null);
+  const [feedbackMessage, setFeedbackMessage] = useState<string | undefined>();
 
   useEffect(() => {
     if (isCartOpen) {
@@ -16,6 +21,38 @@ const CartDrawer = () => {
       document.body.style.overflow = "";
     };
   }, [isCartOpen]);
+
+  const handleCheckout = async () => {
+    const res = await fetch("/api/payfast/initiate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        amount: totalPrice,
+        item_name: `TEES & GEES Order (${items.length} items)`,
+        email: "customer@email.com", // later from checkout form
+        order_id: crypto.randomUUID()
+      })
+    });
+
+    const { paymentUrl, data } = await res.json();
+
+    const form = document.createElement("form");
+    form.method = "POST";
+    form.action = paymentUrl;
+
+    Object.entries(data).forEach(([key, value]) => {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = key;
+      input.value = value as string;
+      form.appendChild(input);
+    });
+
+    document.body.appendChild(form);
+    form.submit();
+  };
+
+  
 
   return (
     <>
@@ -85,7 +122,7 @@ const CartDrawer = () => {
                             Size: {item.size} | Color: {item.color}
                           </p>
                         </div>
-                        <p className="font-medium">${item.product.price}</p>
+                        <p className="font-medium">R{item.product.price}</p>
                       </div>
                       <div className="flex items-center justify-between mt-3">
                         <div className="flex items-center gap-2 bg-secondary rounded-full px-2">
@@ -138,23 +175,67 @@ const CartDrawer = () => {
             <div className="border-t border-border p-6 space-y-4 bg-background">
               <div className="flex justify-between">
                 <span className="font-medium">Subtotal</span>
-                <span className="font-bold text-lg">${totalPrice.toFixed(2)}</span>
+                <span className="font-bold text-lg">R{totalPrice.toFixed(2)}</span>
               </div>
               <p className="text-sm text-muted-foreground">
                 Shipping and taxes calculated at checkout
               </p>
-              <Button variant="nike" size="lg" className="w-full h-14">
+              <Button 
+                onClick={async () => {
+                  try {
+                    const res = await fetch("/api/payfast/create", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({
+                        items,
+                        total: totalPrice
+                      })
+                    });
+
+                    const data = await res.json();
+
+                    if (data.success) {
+                      setPaymentStatus("success");
+                      setFeedbackMessage("Your order is being processed.");
+                      setFeedbackOpen(true);
+
+                      // OPTIONAL: clear cart here or after ITN confirmation
+                      // clearCart();
+                    } else {
+                      throw new Error(data.message);
+                    }
+
+                  } catch (err) {
+                    setPaymentStatus("error");
+                    setFeedbackMessage("Payment could not be completed.");
+                    setFeedbackOpen(true);
+                  }
+                }}
+                variant="nike" size="lg" className="w-full h-14">
                 Checkout
               </Button>
-              <Button variant="nikeOutline" size="lg" className="w-full">
+              {/* <Button variant="nikeOutline" size="lg" className="w-full">
                 View Bag
-              </Button>
+              </Button> */}
             </div>
           )}
         </div>
       </div>
+
+      <CheckoutFeedback
+        open={feedbackOpen}
+        status={paymentStatus}
+        message={feedbackMessage}
+        onClose={() => {
+          setFeedbackOpen(false);
+          setIsCartOpen(false);
+        }}
+      />
+
     </>
   );
 };
+
+
 
 export default CartDrawer;

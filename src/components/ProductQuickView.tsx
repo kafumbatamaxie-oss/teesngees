@@ -97,11 +97,6 @@ const ProductQuickView = ({ product, onClose }: ProductQuickViewProps) => {
               
               <div className="flex items-center gap-2 mb-6">
                 <span className="text-xl font-medium">R{product.price}</span>
-                {product.originalPrice && (
-                  <span className="text-muted-foreground line-through">
-                    R{product.originalPrice}
-                  </span>
-                )}
               </div>
 
               <p className="text-sm text-muted-foreground mb-6">{product.description}</p>
