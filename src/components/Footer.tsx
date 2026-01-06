@@ -20,7 +20,7 @@ const Footer = () => {
       { name: "News", href: "/news" },
       { name: "Careers", href: "/careers" },
       { name: "Investors", href: "/investors" },
-      { name: "Sustainability", href: "/sustainability" },
+      { name: "Terms & Conditions", href: "/terms" },
     ],
   };
 
@@ -115,8 +115,8 @@ const Footer = () => {
               <Link to="/guides" className="hover:text-primary-foreground transition-colors">
                 Guides
               </Link>
-              <Link to="/terms" className="hover:text-primary-foreground transition-colors">
-                Terms of Use
+              <Link to="/terms" target="_blank" className="hover:text-primary-foreground transition-colors">
+                Terms And Conditions
               </Link>
               <Link to="/privacy" className="hover:text-primary-foreground transition-colors">
                 Privacy Policy

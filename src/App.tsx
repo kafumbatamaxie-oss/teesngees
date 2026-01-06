@@ -2,13 +2,15 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import {  Routes, Route } from "react-router-dom";
+import {  Routes, Route, BrowserRouter } from "react-router-dom";
 import { CartProvider } from "@/context/CartContext";
 import Index from "./pages/Index";
 import ProductDetail from "./pages/ProductDetail";
 import NotFound from "./pages/NotFound";
 import { HashRouter } from "react-router-dom";
 import Shop from "./pages/Shop";
+import Terms from "./pages/Terms";
+import About from "./pages/About";
 
 
 const queryClient = new QueryClient();
@@ -20,15 +22,17 @@ const App = () => (
         <Toaster />
         <Sonner />
         
-        <HashRouter>
+        <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/shop" element={<Shop />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/about" element={<About />} />
             <Route path="/shop/:category" element={<Shop />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </HashRouter>
+        </BrowserRouter>
 
       </CartProvider>
     </TooltipProvider>

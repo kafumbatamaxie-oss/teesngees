@@ -9,6 +9,9 @@ import ShopByCategory from "@/components/ShopByCatogry";
 import HeroCarousel from "@/components/HeroCarousel";
 import PromoMarquee from "@/components/PromoMarquee";
 import DeliveryMarquee from "@/components/DeliveryMarquee";
+import AboutSection from "@/components/home/AboutSection";
+import WhyChooseSection from "@/components/home/WhyChooseSection";
+import ProductHighlightsSection from "@/components/home/ProductHighlightsSection";
 
 const Index = () => {
   return (
@@ -17,9 +20,12 @@ const Index = () => {
       <Header />
       <main>
         <HeroCarousel />
-        <TrendingProducts />
         <PromoMarquee />
+        <AboutSection />
+        <TrendingProducts />
+        <WhyChooseSection />
         <FeaturedCollections />
+        <ProductHighlightsSection />
         <BestSellers />
         <ShopByCategory />
         <MembershipBanner />

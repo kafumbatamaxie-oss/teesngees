@@ -7,7 +7,7 @@ import { products, Product } from "@/data/products";
 
 const BestSellers = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const bestSellers = products.filter((p) => p.isBestSeller);
+  const bestSellers = products.slice(4).filter((p) => p.isBestSeller);
 
   return (
     <section className="py-16 bg-nike-light-gray">

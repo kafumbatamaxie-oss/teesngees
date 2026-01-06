@@ -14,7 +14,7 @@ const categories = [
   },
   {
     name: "Kids'",
-    image: "images/kids-category.webp",
+    image: "images/kids-category.jpg",
     link: "/kids",
   },
 ];

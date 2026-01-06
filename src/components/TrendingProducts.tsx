@@ -17,7 +17,7 @@ const TrendingProducts = () => {
             Trending Now
           </h2>
           <Link
-            to="/new"
+            to="/shop"
             className="flex items-center gap-2 text-sm font-medium hover:text-muted-foreground transition-colors group"
           >
             Shop All

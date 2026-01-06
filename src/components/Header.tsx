@@ -16,7 +16,7 @@ const Header = () => {
     { name: "Men", href: "/men", hasDropdown: true },
     { name: "Women", href: "/women", hasDropdown: true },
     { name: "Kids", href: "/kids", hasDropdown: true },
-    { name: "Sale", href: "/sale", hasDropdown: false },
+    { name: "About", href: "/about", hasDropdown: false },
   ];
 
   return (

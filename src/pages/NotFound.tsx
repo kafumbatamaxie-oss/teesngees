@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import termsHero from "@/assets/terms-hero.jpg";
 
 const NotFound = () => {
   const location = useLocation();
