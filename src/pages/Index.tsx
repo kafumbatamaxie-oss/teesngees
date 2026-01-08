@@ -12,6 +12,7 @@ import DeliveryMarquee from "@/components/DeliveryMarquee";
 import AboutSection from "@/components/home/AboutSection";
 import WhyChooseSection from "@/components/home/WhyChooseSection";
 import ProductHighlightsSection from "@/components/home/ProductHighlightsSection";
+import WhatsAppButton from "@/components/WhatsaAppButton";
 
 const Index = () => {
   return (
@@ -29,6 +30,7 @@ const Index = () => {
         <BestSellers />
         <ShopByCategory />
         <MembershipBanner />
+        <WhatsAppButton />
       </main>
       <Footer />
       <CartDrawer />

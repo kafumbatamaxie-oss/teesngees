@@ -210,36 +210,38 @@ export const categories = [
 
 export const featuredCollections = [
   {
-    id: "1",
-    title: "Cape Town Collection",
-    description: "Iconic Cape Town map and city-inspired designs",
-    image: "/images/collections/P220421144804_Top_CR2_4-scaled.jpg",
-    link: "/collections/cape-town",
-    cta: "Shop Now",
-    ctaLink: "/shop?category=men",
-    ctaSecondary: "Explore",
-    ctaSecondaryLink: "/shop",
-  },
-  {
-    id: "2",
-    title: "Township Collection",
-    description: "Bold township culture designs rooted in local identity",
-    image: "/images/collections/Plain-Map-Raglan-Sweater2.jpg",
-    link: "/collections/township",
-    ctaLink: "/shop?category=women",
-    ctaSecondary: "Explore",
-    ctaSecondaryLink: "/shop",
-  },
-  {
     id: "3",
-    title: "African Roots Collection",
-    description: "African-inspired graphics celebrating heritage and pride",
-    image: "/images/collections/P220421132112_full-body-tall_CR2_8-scaled.jpg",
+    title: "Africa Cape Town Map",
+    description: "African-inspired graphics of Cape Town , where the Sun Never Sets",
+    image: "/images/trending/white-t-2.png",
     link: "/collections/african-roots",
     ctaLink: "/shop?category=kids",
     ctaSecondary: "Explore",
     ctaSecondaryLink: "/shop",
   },
+  {
+    id: "1",
+    title: "Gugulethu Cape Town",
+    description: "Iconic Cape Town Gugulethu T-shirt",
+    image: "/images/trending/blue-t-1.png",
+    link: "/shop?category=gugulethu",
+    cta: "Shop Now",
+    ctaLink: "/shop?category=men",
+    ctaSecondary: "Explore",
+    ctaSecondaryLink: "/shop",
+  },
+  
+  {
+    id: "2",
+    title: "The Mothercity",
+    description: "The Mothercity Cape Town designs rooted in local identity",
+    image: "/images/trending/white-t-1.png",
+    link: "/collections/township",
+    ctaLink: "/shop?category=women",
+    ctaSecondary: "Explore",
+    ctaSecondaryLink: "/shop",
+  },
+  
 ];
 
 

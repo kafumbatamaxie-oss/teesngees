@@ -5,6 +5,7 @@ import DeliveryMarquee from "@/components/DeliveryMarquee";
 import { useAboutData } from "@/hooks/useDataFetching";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Calendar, MapPin, Globe, Scissors, Check } from "lucide-react";
+import WhatsAppButton from "@/components/WhatsaAppButton";
 
 const AboutSkeleton = () => (
   <div className="space-y-12">
@@ -178,6 +179,7 @@ const About = () => {
           </>
         )}
       </main>
+      <WhatsAppButton />
       <Footer />
       <CartDrawer />
     </div>
