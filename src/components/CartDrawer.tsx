@@ -1,15 +1,16 @@
 import { useEffect } from "react";
 import { X, Plus, Minus, ShoppingBag } from "lucide-react";
-import { useCart } from "@/context/CartContext";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { CheckoutFeedback } from "@/components/checkout/CheckoutFeedback";
+import { useCart } from "@/context/CartContext";
+import { useCheckoutFeedback } from "@/context/CheckoutFeedbackContext";
+
 
 const CartDrawer = () => {
   const { items, isCartOpen, setIsCartOpen, totalPrice, updateQuantity, removeFromCart } = useCart();
-  const [feedbackOpen, setFeedbackOpen] = useState(false);
-  const [paymentStatus, setPaymentStatus] = useState<"success" | "error" | null>(null);
-  const [feedbackMessage, setFeedbackMessage] = useState<string | undefined>();
+  const { showError, open, status, message, close } = useCheckoutFeedback(); 
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (isCartOpen) {
@@ -23,35 +24,35 @@ const CartDrawer = () => {
   }, [isCartOpen]);
 
   const handleCheckout = async () => {
-    const res = await fetch("/api/payfast/initiate", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        amount: totalPrice,
-        item_name: `TEES & GEES Order (${items.length} items)`,
-        email: "customer@email.com", // later from checkout form
-        order_id: crypto.randomUUID()
-      })
-    });
+    try {
+      const res = await fetch("/api/payfast/create-payment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          amount: totalPrice,
+          item_name: `Cart Checkout (${items.length} items)`,
+          email: "customer@email.com",
+        }),
+      });
 
-    const { paymentUrl, data } = await res.json();
+      const data = await res.json();
+      if (!data?.payfastUrl) {
+        throw new Error("Invalid PayFast response");
+      }
 
-    const form = document.createElement("form");
-    form.method = "POST";
-    form.action = paymentUrl;
+      setLoading(true);
+      window.location.href = data.payfastUrl;
 
-    Object.entries(data).forEach(([key, value]) => {
-      const input = document.createElement("input");
-      input.type = "hidden";
-      input.name = key;
-      input.value = value as string;
-      form.appendChild(input);
-    });
-
-    document.body.appendChild(form);
-    form.submit();
+    } catch {
+      showError("Unable to start payment. Please try again.");
+    }
   };
 
+
+ 
+
+   
+ 
   
 
   return (
@@ -181,38 +182,13 @@ const CartDrawer = () => {
                 Shipping and taxes calculated at checkout
               </p>
               <Button 
-                onClick={async () => {
-                  try {
-                    const res = await fetch("/api/payfast/create", {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify({
-                        items,
-                        total: totalPrice
-                      })
-                    });
-
-                    const data = await res.json();
-
-                    if (data.success) {
-                      setPaymentStatus("success");
-                      setFeedbackMessage("Your order is being processed.");
-                      setFeedbackOpen(true);
-
-                      // OPTIONAL: clear cart here or after ITN confirmation
-                      // clearCart();
-                    } else {
-                      throw new Error(data.message);
-                    }
-
-                  } catch (err) {
-                    setPaymentStatus("error");
-                    setFeedbackMessage("Payment could not be completed.");
-                    setFeedbackOpen(true);
-                  }
-                }}
-                variant="nike" size="lg" className="w-full h-14">
-                Checkout
+                variant="nike" 
+                size="lg" 
+                className="w-full h-14"
+                onClick={handleCheckout}
+                disabled={loading}  
+              >
+                {loading ? "Redirecting…" : "Checkout"}
               </Button>
               {/* <Button variant="nikeOutline" size="lg" className="w-full">
                 View Bag
@@ -222,14 +198,11 @@ const CartDrawer = () => {
         </div>
       </div>
 
-      <CheckoutFeedback
-        open={feedbackOpen}
-        status={paymentStatus}
-        message={feedbackMessage}
-        onClose={() => {
-          setFeedbackOpen(false);
-          setIsCartOpen(false);
-        }}
+      <CheckoutFeedback 
+        open={open}
+        status={status}
+        message={message}
+        onClose={close}
       />
 
     </>

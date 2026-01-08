@@ -16,7 +16,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const Shop = () => {
+const MenShop = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialSearch = searchParams.get("search") || "";
   const initialCategory = searchParams.get("category") || "all";
@@ -29,10 +29,10 @@ const Shop = () => {
 
   const categories = [
     { value: "all", label: "All Products" },
-    { value: "all/roud-neck-tee", label: "Round Neck Tee" },
-    { value: "all/v-tee", label: "V-Tee" },
-    { value: "all/accessories", label: "Accessories" },
-    { value: "all/new", label: "New Arrival"}
+    { value: "round-neck-tee", label: "Round Neck Tees" },
+    { value: "v-tee", label: "V-Tee" },
+    { value: "accessories", label: "Accessories" },
+    { value: "new", label: "New Arrival"}
   ];
 
   const filteredProducts = useMemo(() => {
@@ -44,7 +44,7 @@ const Shop = () => {
       result = result.filter(
         (p) =>
           p.name.toLowerCase().includes(query) ||
-          p.category.toLowerCase().includes(query) ||
+          p.categorySlug.toLowerCase().includes(query) ||
           p.description.toLowerCase().includes(query)
       );
     }
@@ -52,7 +52,7 @@ const Shop = () => {
     // Filter by category
     if (category !== "all") {
       result = result.filter((p) =>
-        p.category.toLowerCase().includes(category.toLowerCase())
+        p.categorySlug.toLowerCase().includes(category.toLowerCase())
       );
     }
 
@@ -109,7 +109,7 @@ const Shop = () => {
               Home
             </Link>
             <span>/</span>
-            <span className="text-foreground">Shop</span>
+            <span className="text-foreground">Men Category Shop</span>
           </nav>
         </div>
 
@@ -264,4 +264,4 @@ const Shop = () => {
   );
 };
 
-export default Shop;
+export default MenShop;

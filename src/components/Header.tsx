@@ -12,11 +12,12 @@ const Header = () => {
   const { totalItems, setIsCartOpen } = useCart();
 
   const navLinks = [
-    { name: "New & Featured", href: "/new", hasDropdown: true },
+    { name: "New & Featured", href: "/shop", hasDropdown: true },
     { name: "Men", href: "/men", hasDropdown: true },
     { name: "Women", href: "/women", hasDropdown: true },
     { name: "Kids", href: "/kids", hasDropdown: true },
-    { name: "About", href: "/about", hasDropdown: false },
+     { name: "About", href: "/about", hasDropdown: false },
+      { name: "Wholesale", href: "/wholesale", hasDropdown: false },
   ];
 
   return (
@@ -40,12 +41,12 @@ const Header = () => {
                 Find a Store
               </Link>
               <span className="text-border">|</span>
-              <Link to="/help" className="hover:text-muted-foreground transition-colors">
-                Help
+              <Link to="/wholesale" className="hover:text-muted-foreground transition-colors">
+                Retail Partners
               </Link>
               <span className="text-border">|</span>
-              <Link to="/join" className="hover:text-muted-foreground transition-colors">
-                Join Us
+              <Link to="/terms" className="hover:text-muted-foreground transition-colors">
+                Terms & Conditions
               </Link>
               <span className="text-border">|</span>
               <Link to="/signin" className="hover:text-muted-foreground transition-colors">
@@ -91,13 +92,13 @@ const Header = () => {
                   {link.hasDropdown && activeDropdown === link.name && (
                     <div className="absolute top-full left-0 w-64 bg-background border border-border shadow-card p-4 animate-fade-in">
                       <div className="grid gap-2">
-                        <Link to={`${link.href}/shoes`} className="text-sm hover:text-muted-foreground transition-colors py-1">
-                          Neck-Tee
+                        <Link to={`${link.href}/roud-neck-tee`} className="text-sm hover:text-muted-foreground transition-colors py-1">
+                          Roud-Neck-Tee
                         </Link>
-                        <Link to={`${link.href}/clothing`} className="text-sm hover:text-muted-foreground transition-colors py-1">
+                        <Link to={`${link.href}/v-tee`} className="text-sm hover:text-muted-foreground transition-colors py-1">
                           V-Tee
                         </Link>
-                        <Link to={`${link.href}/accessories`} className="text-sm hover:text-muted-foreground transition-colors py-1">
+                        <Link to={`${link.href}/sweater`} className="text-sm hover:text-muted-foreground transition-colors py-1">
                           Sweater
                         </Link>
                         <Link to={`${link.href}/accessories`} className="text-sm hover:text-muted-foreground transition-colors py-1">
@@ -116,14 +117,10 @@ const Header = () => {
             {/* Search & Icons */}
             <div className="flex items-center gap-4">
               {/* Search */}
-              <div className="hidden md:flex items-center bg-secondary rounded-full px-4 py-2 gap-2">
+              <button onClick={() => setIsSearchOpen(true)} className="hidden md:flex items-center bg-secondary rounded-full px-4 py-2 gap-2" id="search">
                 <Search className="h-4 w-4 text-muted-foreground" />
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="bg-transparent text-sm outline-none w-32 lg:w-40"
-                />
-              </div>
+                <div  className="bg-transparent text-sm outline-none w-32 lg:w-40">Search</div>
+              </button>
 
               {/* Mobile Search - Opens Drawer */}
               <button
@@ -133,10 +130,10 @@ const Header = () => {
                 <Search className="h-5 w-5" />
               </button>
 
-              {/* Wishlist */}
+              {/* Wishlist
               <button className="hidden md:flex p-2 hover:bg-secondary rounded-full transition-colors">
                 <Heart className="h-5 w-5" />
-              </button>
+              </button> */}
 
               {/* Cart */}
               <button

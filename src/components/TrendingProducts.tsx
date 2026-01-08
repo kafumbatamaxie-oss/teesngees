@@ -13,9 +13,13 @@ const TrendingProducts = () => {
     <section className="py-16 bg-background">
       <div className="container">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-3xl md:text-4xl font-display uppercase">
-            Trending Now
-          </h2>
+          <div className="">
+            
+            <h2 className="text-3xl md:text-4xl font-display uppercase">
+              Available Stock In Store
+            </h2>
+            <p className="flex text-sm items-center justify-between mb-2">(78 Items)</p>
+          </div>
           <Link
             to="/shop"
             className="flex items-center gap-2 text-sm font-medium hover:text-muted-foreground transition-colors group"

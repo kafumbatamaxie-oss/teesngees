@@ -16,7 +16,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const Shop = () => {
+const KidsShop = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialSearch = searchParams.get("search") || "";
   const initialCategory = searchParams.get("category") || "all";
@@ -29,10 +29,9 @@ const Shop = () => {
 
   const categories = [
     { value: "all", label: "All Products" },
-    { value: "all/roud-neck-tee", label: "Round Neck Tee" },
-    { value: "all/v-tee", label: "V-Tee" },
-    { value: "all/accessories", label: "Accessories" },
-    { value: "all/new", label: "New Arrival"}
+    { value: "men/roud-neck-tee", label: "Men's Round Neck Tee" },
+    { value: "women", label: "Women's Shoes" },
+    { value: "running", label: "Running Shoes" },
   ];
 
   const filteredProducts = useMemo(() => {
@@ -264,4 +263,4 @@ const Shop = () => {
   );
 };
 
-export default Shop;
+export default KidsShop;

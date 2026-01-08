@@ -9,21 +9,23 @@ export interface Product {
   sizes: string[];
   description: string;
   originalPrice: string
-  isBestSeller: boolean,
+  isBestSeller: boolean;
+  categorySlug: string;
   isNew: boolean
 }
 
 export const products: Product[] = [
   {
     id: "100",
-    name: "Kaslam Raglan Sweater",
-    category: "Sweaters",
+    name: "Classic African Map Print SlimFit TShirt",
+    category: "Roud Neck Tee",
+    categorySlug: "roud-neck-tee",
     price: 280,
     originalPrice : "550",
     isBestSeller: true,
     isNew: false,
-    image: "/images/trending/product-1.png",
-    images: ["/images/trending/product-1.png", "/images/trending/product-1.png", "/images/trending/product-1.png"],
+    image: "/images/trending/product-5.png",
+    images: ["/images/trending/product-5.png", "/images/trending/product-5.png", "/images/trending/product-5.png"],
     colors: ["Black", "Grey", "White"],
     sizes: ["XS", "S", "M", "L", "XL", "XXL", "XXXL"],
     description: "Kaslam Raglan Sweater",
@@ -31,6 +33,7 @@ export const products: Product[] = [
   {
     id: "200",
     name: "Kaslam Raglan Sweater",
+    categorySlug: "roud-neck-tee",
     category: "Sweaters",
     price: 280,
     originalPrice : "550",
@@ -46,6 +49,7 @@ export const products: Product[] = [
     id: "300",
     name: "Kaslam Raglan Sweater",
     category: "Sweaters",
+    categorySlug: "roud-neck-tee",
     price: 280,
     originalPrice : "550",
     isBestSeller: true,
@@ -59,7 +63,8 @@ export const products: Product[] = [
   {
     id: "400",
     name: "Kaslam Raglan Sweater",
-    category: "Sweaters",
+    category: "Round Neck Tee",
+    categorySlug: "roud-neck-tee",
     price: 280,
     originalPrice : "550",
     isBestSeller: true,
@@ -73,7 +78,8 @@ export const products: Product[] = [
   {
     id: "1",
     name: "Kaslam Raglan Sweater",
-    category: "Sweaters",
+    category: "Round Neck Tee",
+    categorySlug: "roud-neck-tee",
     price: 450,
     originalPrice : "550",
     isBestSeller: true,
@@ -87,7 +93,8 @@ export const products: Product[] = [
   {
     id: "2",
     name: "Kaslam Round Neck-Tee",
-    category: "T-Shirts",
+    category: "Round Neck Tee",
+    categorySlug: "roud-neck-tee",
     price: 250,
     originalPrice : "350",
     isBestSeller: true,
@@ -104,6 +111,7 @@ export const products: Product[] = [
     category: "T-Shirts",
     price: 250,
     originalPrice : "350",
+    categorySlug: "roud-neck-tee",
     isBestSeller: false,
     isNew: true,
     image: "/images/Kaslam-V-Tee4-1.jpg",
@@ -118,6 +126,7 @@ export const products: Product[] = [
     category: "T-Shirts",
     price: 250,
     originalPrice : "350",
+    categorySlug: "roud-neck-tee",
     isBestSeller: true,
     isNew: false,
     image: "/images/Kapa-Lo-Dumo-Round-Tee4-1.jpg",
@@ -131,6 +140,7 @@ export const products: Product[] = [
     name: "Kapa La Duma V-Tee",
     category: "T-Shirts",
     price: 250,
+    categorySlug: "roud-neck-tee",
     originalPrice : "350",
     isBestSeller: false,
     isNew: false,
@@ -145,6 +155,7 @@ export const products: Product[] = [
     name: "Sun Never Sets V-Tee",
     category: "T-Shirts",
     price: 250,
+    categorySlug: "roud-neck-tee",
     originalPrice : "350",
     isBestSeller: true,
     isNew: false,
@@ -158,6 +169,7 @@ export const products: Product[] = [
     id: "7",
     name: "Sun Never Sets Raglan Sweater",
     category: "Sweaters",
+    categorySlug: "roud-neck-tee",
     price: 450,
     originalPrice : "550",
     isBestSeller: false,
@@ -172,6 +184,7 @@ export const products: Product[] = [
     id: "8",
     name: "The Mother City Raglan",
     category: "Sweaters",
+    categorySlug: "roud-neck-tee",
     price: 450,
     originalPrice : "550",
     isBestSeller: false,

@@ -21,7 +21,7 @@ const slides = [
     title: "Street",
     subtitle: "Identity",
     description:
-      "inspire love and unity in Africa through T-shirts from the streets of Cape Town.",
+      "Built in Cape Town. Worn Worldwide.",
     image: heroImage6,
     cta: "View Township Collection",
     ctaSecondary: "Learn More",
