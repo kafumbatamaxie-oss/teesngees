@@ -8,6 +8,19 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
+  /* --------------------------------------------------
+     DERIVED DATA (SAFE, NO ASSUMPTIONS)
+  -------------------------------------------------- */
+
+  const totalStock = product.variants.reduce(
+    (sum, v) => sum + v.quantity,
+    0
+  );
+
+  const colorCount = new Set(
+    product.variants.map((v) => v.color)
+  ).size;
+
   return (
     <div className="group">
       {/* Image Container */}
@@ -17,7 +30,7 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
           alt={product.name}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        
+
         {/* Badges */}
         <div className="absolute top-3 left-3 flex flex-col gap-1">
           {product.isNew && (
@@ -25,16 +38,18 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
               New
             </span>
           )}
+
           {product.isBestSeller && (
             <span className="bg-nike-orange text-primary-foreground text-xs font-medium px-2 py-1">
               Best Seller
             </span>
           )}
-          {/* {product.originalPrice && (
+
+          {totalStock === 0 && (
             <span className="bg-nike-red text-primary-foreground text-xs font-medium px-2 py-1">
-              Sale
+              Out of Stock
             </span>
-          )} */}
+          )}
         </div>
 
         {/* Wishlist Button */}
@@ -43,12 +58,14 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
         </button>
 
         {/* Quick View */}
-        <button
-          onClick={() => onQuickView?.(product)}
-          className="absolute bottom-3 left-3 right-3 bg-background/95 backdrop-blur-sm py-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity hover:bg-background text-center"
-        >
-          Quick View
-        </button>
+        {totalStock > 0 && (
+          <button
+            onClick={() => onQuickView?.(product)}
+            className="absolute bottom-3 left-3 right-3 bg-background/95 backdrop-blur-sm py-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity hover:bg-background text-center"
+          >
+            Quick View
+          </button>
+        )}
       </div>
 
       {/* Product Info */}
@@ -58,19 +75,18 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
             <h3 className="font-medium text-sm group-hover:text-muted-foreground transition-colors">
               {product.name}
             </h3>
-            <p className="text-sm text-muted-foreground">{product.category}</p>
+            <p className="text-sm text-muted-foreground">
+              {product.category}
+            </p>
           </div>
         </div>
-        <div className="flex items-center ">
+
+        <div className="flex items-center">
           <span className="font-medium">R{product.price}</span>
-          {/* {product.originalPrice && (
-            <span className="text-muted-foreground line-through text-sm">
-              R{product.originalPrice}
-            </span>
-          )} */}
         </div>
+
         <p className="text-sm text-muted-foreground mt-1">
-          {product.colors.length} Color{product.colors.length > 1 ? "s" : ""}
+          {colorCount} Color{colorCount > 1 ? "s" : ""}
         </p>
       </Link>
     </div>

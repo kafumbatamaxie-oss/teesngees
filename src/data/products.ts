@@ -1,16 +1,23 @@
 export type Gender = "men" | "women" | "kids";
 
+export type Size = "XS" | "S" | "M" | "L" | "XL" | "XXL" | "XXXL";
+
+export interface Variant {
+  color: string;
+  size: Size;
+  quantity: number;
+}
+
 export interface Product {
   id: string;
   name: string;
-  genders: Gender[]; // 👈 CHANGED
+  genders: Gender[];
   category: string;
   categorySlug: "round-neck-tee" | "v-tee" | "sweater" | "accessories";
   price: number;
-  image: string;
-  images: string[];
-  colors: string[];
-  sizes: string[];
+  image: string;          // default image
+  images: string[];       // gallery
+  variants: Variant[];    // 👈 INVENTORY LIVES HERE
   description: string;
   originalPrice: string;
   isBestSeller: boolean;
@@ -18,73 +25,35 @@ export interface Product {
 }
 
 
-
 export const products: Product[] = [
   {
-  id: "100",
-  name: "Classic African Map Print SlimFit TShirt",
-  genders: ["men", "women"],
-  category: "Round Neck Tee",
-  categorySlug: "round-neck-tee",
-  price: 280,
-  originalPrice: "550",
-  isBestSeller: true,
-  isNew: false,
-  image: "/images/trending/product-5.png",
-  images: ["/images/trending/product-5.png"],
-  colors: ["Black", "Grey", "White"],
-  sizes: ["S", "M", "L", "XL"],
-  description: "Slim fit African map print tee",
-}
-,
-  {
-    id: "200",
-    name: "Kaslam Raglan Sweater",
-    categorySlug: "round-neck-tee",
+    id: "100",
+    name: "African Map",
     genders: ["men", "women"],
     category: "Round Neck Tee",
-    price: 280,
-    originalPrice : "550",
-    isBestSeller: true,
-    isNew: false,
-    image: "/images/trending/product-2.png",
-    images: ["/images/trending/product-2.png", "/images/trending/product-2.png", "/images/trending/product-2.png"],
-    colors: ["Black", "Grey", "White"],
-    sizes: ["XS", "S", "M", "L", "XL", "XXL", "XXXL"],
-    description: "Kaslam Raglan Sweater",
-  },
-  {
-    id: "300",
-    name: "Kaslam Raglan Sweater",
     categorySlug: "round-neck-tee",
-    genders: ["women", "men"],
-    category: "Round Neck Tee",
     price: 280,
-    originalPrice : "550",
-    isBestSeller: true,
+    originalPrice: "550",
+    isBestSeller: false,
     isNew: false,
-    image: "/images/trending/product-3.png",
-    images: ["/images/trending/product-3.png", "/images/trending/product-3.png", "/images/trending/product-3.png"],
-    colors: ["Black", "Grey", "White"],
-    sizes: ["XS", "S", "M", "L", "XL", "XXL", "XXXL"],
-    description: "Kaslam Raglan Sweater",
+    image: "/images/store/african-map-tee-default.png",
+    images: [
+      "/images/store/african-map-tee-bottle-green-1.png",
+      "/images/store/african-map-tee-bottle-green-2.png",
+      "/images/store/african-map-tee-bottle-green-1.png",
+    ],
+    variants: [
+      { color: "Bottle green", size: "XS", quantity: 1 },
+      { color: "Bottle green", size: "S", quantity: 3 },
+      { color: "Bottle green", size: "M", quantity: 2 },
+      { color: "Bottle green", size: "L", quantity: 6 },
+      { color: "Bottle green", size: "XL", quantity: 2 },
+      { color: "Bottle green", size: "XXL", quantity: 3 },
+      { color: "Bottle green", size: "XXXL", quantity: 2 },
+    ],
+    description: "Unisex Cape Town logo tee",
   },
-  {
-    id: "400",
-    name: "Kaslam Raglan Sweater",
-    categorySlug: "round-neck-tee",
-    genders: ["women", "men"],
-    category: "Round Neck Tee",
-    price: 280,
-    originalPrice : "550",
-    isBestSeller: true,
-    isNew: false,
-    image: "/images/trending/product-4.png",
-    images: ["/images/trending/product-4.png", "/images/trending/product-4.png", "/images/trending/product-4.png"],
-    colors: ["Black", "Grey", "White"],
-    sizes: ["XS", "S", "M", "L", "XL", "XXL", "XXXL"],
-    description: "Kaslam Raglan Sweater",
-  },
+
   
 ];
 
