@@ -12,7 +12,7 @@ const Header = () => {
   const { totalItems, setIsCartOpen } = useCart();
 
   const navLinks = [
-    { name: "New & Featured", href: "/shop", hasDropdown: true },
+    { name: "New & Featured", href: "/shop", hasDropdown: false },
     { name: "Men", href: "/men", hasDropdown: true },
     { name: "Women", href: "/women", hasDropdown: true },
     { name: "Kids", href: "/kids", hasDropdown: true },
@@ -92,7 +92,7 @@ const Header = () => {
                   {link.hasDropdown && activeDropdown === link.name && (
                     <div className="absolute top-full left-0 w-64 bg-background border border-border shadow-card p-4 animate-fade-in">
                       <div className="grid gap-2">
-                        <Link to={`${link.href}/roud-neck-tee`} className="text-sm hover:text-muted-foreground transition-colors py-1">
+                        <Link to={`${link.href}/round-neck-tee`} className="text-sm hover:text-muted-foreground transition-colors py-1">
                           Roud-Neck-Tee
                         </Link>
                         <Link to={`${link.href}/v-tee`} className="text-sm hover:text-muted-foreground transition-colors py-1">
@@ -103,9 +103,6 @@ const Header = () => {
                         </Link>
                         <Link to={`${link.href}/accessories`} className="text-sm hover:text-muted-foreground transition-colors py-1">
                           Accessories
-                        </Link>
-                        <Link to={`${link.href}/new-arrivals`} className="text-sm hover:text-muted-foreground transition-colors py-1 text-nike-orange font-medium">
-                          New Arrivals
                         </Link>
                       </div>
                     </div>

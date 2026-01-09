@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams, Link, useParams } from "react-router-dom";
 import { Search, SlidersHorizontal, X, Grid3X3, LayoutList } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -17,9 +17,18 @@ import {
 } from "@/components/ui/select";
 
 const Shop = () => {
+  const { gender, category: categoryParam } = useParams<{
+    gender?: "men" | "women" | "kids" ;
+    category?: string;}>();
+  
+  const initialCategory = categoryParam || "all";
+  const initialGender = gender || "all";
+
+
   const [searchParams, setSearchParams] = useSearchParams();
   const initialSearch = searchParams.get("search") || "";
-  const initialCategory = searchParams.get("category") || "all";
+  
+
   
   const [searchQuery, setSearchQuery] = useState(initialSearch);
   const [category, setCategory] = useState(initialCategory);
@@ -28,35 +37,36 @@ const Shop = () => {
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
 
   const categories = [
-    { value: "all", label: "All Products" },
-    { value: "all/roud-neck-tee", label: "Round Neck Tee" },
-    { value: "all/v-tee", label: "V-Tee" },
-    { value: "all/accessories", label: "Accessories" },
-    { value: "all/new", label: "New Arrival"}
-  ];
+  { value: "all", label: "All Products" },
+  { value: "round-neck-tee", label: "Round Neck Tee" },
+  { value: "v-tee", label: "V-Tee" },
+  { value: "sweater", label: "Sweater" },
+  { value: "accessories", label: "Accessories" },
+];  
+
 
   const filteredProducts = useMemo(() => {
     let result = [...products];
 
-    // Filter by search
-    if (searchQuery) {
-      const query = searchQuery.toLowerCase();
-      result = result.filter(
-        (p) =>
-          p.name.toLowerCase().includes(query) ||
-          p.category.toLowerCase().includes(query) ||
-          p.description.toLowerCase().includes(query)
-      );
-    }
+    if (initialGender !== "all") {
+    result = result.filter(product =>
+      product.genders.includes(initialGender)
+    );
+  }
 
-    // Filter by category
+
     if (category !== "all") {
-      result = result.filter((p) =>
-        p.category.toLowerCase().includes(category.toLowerCase())
+      result = result.filter(p => p.categorySlug === category);
+    }
+
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      result = result.filter(p =>
+        p.name.toLowerCase().includes(q) ||
+        p.description.toLowerCase().includes(q)
       );
     }
 
-    // Sort
     switch (sortBy) {
       case "price-asc":
         result.sort((a, b) => a.price - b.price);
@@ -65,17 +75,16 @@ const Shop = () => {
         result.sort((a, b) => b.price - a.price);
         break;
       case "newest":
-        result.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
+        result.sort((a, b) => Number(b.isNew) - Number(a.isNew));
         break;
       case "bestseller":
-        result.sort((a, b) => (b.isBestSeller ? 1 : 0) - (a.isBestSeller ? 1 : 0));
-        break;
-      default:
+        result.sort((a, b) => Number(b.isBestSeller) - Number(a.isBestSeller));
         break;
     }
 
     return result;
-  }, [searchQuery, category, sortBy]);
+  }, [products, initialGender, category, searchQuery, sortBy]);
+
 
   const handleSearch = (value: string) => {
     setSearchQuery(value);
@@ -123,9 +132,10 @@ const Shop = () => {
                 }}
             />
           <div className="container text-center">
-            <h1 className="text-4xl md:text-5xl font-display uppercase mb-4">
-              Shop All
+            <h1 className="text-4xl font-bold uppercase">
+              {gender ? `${gender} ${category}` : "Shop All"}
             </h1>
+
             <p className="text-muted-foreground max-w-xl mx-auto">
               Explore our complete collection of sneakers, running shoes, and lifestyle footwear.
             </p>

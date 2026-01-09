@@ -33,25 +33,13 @@ const App = () => (
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/product/:id" element={<ProductDetail />} />
-            
+            <Route path="/product/:id" element={<ProductDetail />} />           
             <Route path="/terms" element={<Terms />} />
             <Route path="/about" element={<About />} />
-
             <Route path="/shop" element={<Shop />} />
-            <Route path="/shop/:category" element={<Shop />} />
-
-            <Route path="/men" element={<MenShop />} />
-            <Route path="/men:category" element={<MenShop />} />
-
-            <Route path="/women" element={<WomenShop />} />
-            <Route path="/women:category" element={<WomenShop />} />
-
-            <Route path="/kids" element={<KidsShop />} />
-            <Route path="/kids:category" element={<KidsShop />} />
-
+            <Route path="/:gender" element={<Shop />} />
+            <Route path="/:gender/:category" element={<Shop />} />
             <Route path="/wholesale" element={<Partner />} />
-
             <Route path="*" element={<NotFound />} />
             
           </Routes>
