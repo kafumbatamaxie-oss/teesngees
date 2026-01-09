@@ -17,6 +17,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import MenShop from "./pages/MenShop";
 import WomenShop from "./pages/WomenShop";
 import KidsShop from "./pages/KidsShop";
+import { StoreProvider } from "./context/StoreContext";
 
 
 const queryClient = new QueryClient();
@@ -24,7 +25,8 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <CartProvider>
+      <StoreProvider>
+        <CartProvider>
         <CheckoutFeedbackProvider>
         <Toaster />
         <Sonner />
@@ -46,6 +48,7 @@ const App = () => (
         </BrowserRouter>
         </CheckoutFeedbackProvider>
       </CartProvider>
+      </StoreProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

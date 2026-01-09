@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Search, ShoppingBag, Heart, Menu, X, ChevronDown, Phone } from "lucide-react";
+import { Search, ShoppingBag, Menu, X, ChevronDown, Phone } from "lucide-react";
 import { useCart } from "@/context/CartContext";
-import { categories } from "@/data/products";
 import MobileSearchDrawer from "./MobileSearchDrawer";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+
   const { totalItems, setIsCartOpen } = useCart();
 
   const navLinks = [
@@ -16,8 +16,8 @@ const Header = () => {
     { name: "Men", href: "/men", hasDropdown: true },
     { name: "Women", href: "/women", hasDropdown: true },
     { name: "Kids", href: "/kids", hasDropdown: true },
-     { name: "About", href: "/about", hasDropdown: false },
-      { name: "Wholesale", href: "/wholesale", hasDropdown: false },
+    { name: "About", href: "/about", hasDropdown: false },
+    { name: "Wholesale", href: "/wholesale", hasDropdown: false },
   ];
 
   return (
@@ -61,13 +61,12 @@ const Header = () => {
           <div className="container flex items-center justify-between py-4">
             {/* Logo */}
             <Link to="/" className="flex-shrink-0">
-                <img
-                    src="/images/logo-3.png"
-                    alt="TeesNgees Logo"
-                    className="h-8 sm:h-16 w-auto"
-                />
+              <img
+                src="/images/logo-3.png"
+                alt="TeesNgees Logo"
+                className="h-8 sm:h-16 w-auto"
+              />
             </Link>
-
 
             {/* Desktop Nav */}
             <div className="hidden lg:flex items-center gap-8">
@@ -87,13 +86,13 @@ const Header = () => {
                       <ChevronDown className="h-3 w-3 transition-transform group-hover:rotate-180" />
                     )}
                   </Link>
-                  
+
                   {/* Dropdown */}
                   {link.hasDropdown && activeDropdown === link.name && (
                     <div className="absolute top-full left-0 w-64 bg-background border border-border shadow-card p-4 animate-fade-in">
                       <div className="grid gap-2">
                         <Link to={`${link.href}/round-neck-tee`} className="text-sm hover:text-muted-foreground transition-colors py-1">
-                          Roud-Neck-Tee
+                          Round-Neck-Tee
                         </Link>
                         <Link to={`${link.href}/v-tee`} className="text-sm hover:text-muted-foreground transition-colors py-1">
                           V-Tee
@@ -113,24 +112,19 @@ const Header = () => {
 
             {/* Search & Icons */}
             <div className="flex items-center gap-4">
-              {/* Search */}
-              <button onClick={() => setIsSearchOpen(true)} className="hidden md:flex items-center bg-secondary rounded-full px-4 py-2 gap-2" id="search">
+              {/* Desktop Search */}
+              <button onClick={() => setIsSearchOpen(true)} className="hidden md:flex items-center bg-secondary rounded-full px-4 py-2 gap-2">
                 <Search className="h-4 w-4 text-muted-foreground" />
-                <div  className="bg-transparent text-sm outline-none w-32 lg:w-40">Search</div>
+                <div className="bg-transparent text-sm outline-none w-32 lg:w-40">Search</div>
               </button>
 
-              {/* Mobile Search - Opens Drawer */}
+              {/* Mobile Search */}
               <button
                 onClick={() => setIsSearchOpen(true)}
                 className="md:hidden p-2 hover:bg-secondary rounded-full transition-colors"
               >
                 <Search className="h-5 w-5" />
               </button>
-
-              {/* Wishlist
-              <button className="hidden md:flex p-2 hover:bg-secondary rounded-full transition-colors">
-                <Heart className="h-5 w-5" />
-              </button> */}
 
               {/* Cart */}
               <button

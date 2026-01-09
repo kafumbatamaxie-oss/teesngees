@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import ProductQuickView from "./ProductQuickView";
 import { products, Product } from "@/data/products";
+import { useStore } from "@/context/StoreContext";
 
 const TrendingProducts = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const trendingProducts = products.slice(0, 4);
+  const { totalItemsInStore } = useStore();
 
   return (
     <section className="py-16 bg-background">
@@ -18,7 +20,7 @@ const TrendingProducts = () => {
             <h2 className="text-3xl md:text-4xl font-display uppercase">
               Available Stock In Store
             </h2>
-            <p className="flex text-sm items-center justify-between mb-2">(78 Items)</p>
+            <p className="flex text-sm items-center justify-between mb-2">({totalItemsInStore} Items)</p>
           </div>
           <Link
             to="/shop"
