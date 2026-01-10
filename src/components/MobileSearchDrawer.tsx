@@ -21,11 +21,7 @@ const MobileSearchDrawer = ({ isOpen, onClose }: MobileSearchDrawerProps) => {
     : [];
 
   const popularSearches = [
-  "Cape Town T-Shirts",
-  "Township T-Shirts",
-  "African Map T-Shirts",
-  "South Africa Map Tees",
-  "Mother City Apparel",
+  "Round Neck Tee", "v Tee" , "Sweater" , "Accessories",
 ];
 
   useEffect(() => {

@@ -157,7 +157,7 @@ const ProductQuickView = ({ product, onClose }: ProductQuickViewProps) => {
                       } ${quantity === 0 ? "opacity-40 cursor-not-allowed" : ""}`}
                     >
                       {size}
-                      {quantity > 0 && quantity <= 3 && (
+                      {quantity > 0 &&  (
                         <span className="block text-xs text-nike-red">{quantity} left</span>
                       )}
                     </button>

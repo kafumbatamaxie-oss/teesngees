@@ -26,6 +26,34 @@ export interface Product {
 
 
 export const products: Product[] = [
+   {
+    id: "101",
+    name: "Cape Town",
+    genders: ["men", "women"],
+    category: "Round Neck Tee",
+    categorySlug: "round-neck-tee",
+    price: 280,
+    originalPrice: "550",
+    isBestSeller: true,
+    isNew: false,
+    image: "/images/store/sun-never-set-tee-bottle-green-default.png",
+    images: [
+      "/images/store/sun-never-set-tee-bottle-green-1.png",
+      "/images/store/sun-never-set-tee-bottle-green-2.png",
+      "/images/store/sun-never-set-tee-bottle-green-2.png",
+    ],
+    variants: [
+      { color: "Bottle green", size: "XS", quantity: 2 },
+      { color: "Bottle green", size: "S", quantity: 3 },
+      { color: "Bottle green", size: "M", quantity: 3 },
+      { color: "Bottle green", size: "L", quantity: 5 },
+      { color: "Bottle green", size: "XL", quantity: 3 },
+      { color: "Bottle green", size: "XXL", quantity: 2 },
+      { color: "Bottle green", size: "XXXL", quantity: 2 },
+    ],
+    description: "Inspired by Cape Town’s unique position at the southern tip of Africa, this print celebrates the idea that the sun sets last here — and symbolically, never truly goes down. Where the Sun Never Sets” speaks to more than geography. It reflects a city that is constantly alive — vibrant by day, electric by night. A place where creativity, culture, and ambition move around the clock. One of our best-selling prints, this design captures Cape Town as a city of light, motion, and endless possibility.",
+  },
+
   {
     id: "100",
     name: "African Map",
@@ -53,34 +81,7 @@ export const products: Product[] = [
     ],
     description: "Celebrate African pride with this African Map round neck tee. Featuring a bold white African map print on a bottle green t-shirt, this unisex custom tee represents unity, heritage, and style across South Africa and the African continent.",
   },
-   {
-    id: "101",
-    name: "Sun Never Sets",
-    genders: ["men", "women"],
-    category: "Round Neck Tee",
-    categorySlug: "round-neck-tee",
-    price: 280,
-    originalPrice: "550",
-    isBestSeller: true,
-    isNew: false,
-    image: "/images/store/sun-never-set-tee-bottle-green-default.png",
-    images: [
-      "/images/store/sun-never-set-tee-bottle-green-1.png",
-      "/images/store/sun-never-set-tee-bottle-green-2.png",
-      "/images/store/sun-never-set-tee-bottle-green-2.png",
-    ],
-    variants: [
-      { color: "Bottle green", size: "XS", quantity: 2 },
-      { color: "Bottle green", size: "S", quantity: 3 },
-      { color: "Bottle green", size: "M", quantity: 3 },
-      { color: "Bottle green", size: "L", quantity: 5 },
-      { color: "Bottle green", size: "XL", quantity: 3 },
-      { color: "Bottle green", size: "XXL", quantity: 2 },
-      { color: "Bottle green", size: "XXXL", quantity: 2 },
-    ],
-    description: "Sun Never Sets round neck tee featuring a bold white print on a bottle green t-shirt. Inspired by African resilience and timeless energy, this unisex custom tee is designed for everyday wear with meaning and style.",
-  },
-
+  
 
   
 ];
