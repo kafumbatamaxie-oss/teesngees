@@ -13,6 +13,7 @@ import AboutSection from "@/components/home/AboutSection";
 import WhyChooseSection from "@/components/home/WhyChooseSection";
 import ProductHighlightsSection from "@/components/home/ProductHighlightsSection";
 import WhatsAppButton from "@/components/WhatsaAppButton";
+import FAQ from "@/components/FAQ";
 
 const Index = () => {
   return (
@@ -28,6 +29,7 @@ const Index = () => {
         <FeaturedCollections />
         <ProductHighlightsSection />
         <BestSellers />
+        <FAQ />
         <ShopByCategory />
         <MembershipBanner />
         <WhatsAppButton />

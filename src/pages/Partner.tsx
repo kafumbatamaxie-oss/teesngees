@@ -1,19 +1,27 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import {
-  Package,
-  Truck,
-  BadgePercent,
-  Users,
-  CheckCircle,
-  Mail,
-  Phone,
-  MapPin,
-} from "lucide-react";
+import { Package, Truck, BadgePercent, Users, CheckCircle, Mail, Phone, MapPin, Store, Globe, Handshake, Award, Loader2 } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { z } from "zod";
 import DeliveryMarquee from "@/components/DeliveryMarquee";
+
+const partnerFormSchema = z.object({
+  firstName: z.string().trim().min(1, "First name is required").max(50),
+  lastName: z.string().trim().min(1, "Last name is required").max(50),
+  businessName: z.string().trim().min(1, "Business name is required").max(100),
+  email: z.string().trim().email("Invalid email address").max(255),
+  phone: z.string().trim().max(20).optional(),
+  message: z.string().trim().max(1000).optional(),
+});
+
+type PartnerFormData = z.infer<typeof partnerFormSchema>;
+
+
 
 const Partner = () => {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
@@ -21,6 +29,71 @@ const Partner = () => {
   const { ref: howItWorksRef, isVisible: howItWorksVisible } = useScrollAnimation();
   const { ref: requirementsRef, isVisible: requirementsVisible } = useScrollAnimation();
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
+
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState<PartnerFormData>({
+    firstName: "",
+    lastName: "",
+    businessName: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validate form data
+    const result = partnerFormSchema.safeParse(formData);
+    if (!result.success) {
+      toast({
+        title: "Validation Error",
+        description: result.error.errors[0]?.message || "Please check your input",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke("send-partner-application", {
+        body: formData,
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Application Submitted!",
+        description: "Thank you for your interest. We'll be in touch within 48 hours.",
+      });
+
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        businessName: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (error: any) {
+      console.error("Error submitting application:", error);
+      toast({
+        title: "Submission Failed",
+        description: error.message || "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const benefits = [
     {
@@ -299,77 +372,95 @@ const Partner = () => {
                   <h3 className="text-xl font-semibold mb-6">
                     Wholesale Application
                   </h3>
-                  <form className="space-y-4">
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="text-sm font-medium mb-2 block">
-                          First Name
-                        </label>
-                        <input
-                          type="text"
-                          className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
-                          placeholder="John"
-                        />
-                      </div>
-                      <div>
-                        <label className="text-sm font-medium mb-2 block">
-                          Last Name
-                        </label>
-                        <input
-                          type="text"
-                          className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
-                          placeholder="Doe"
-                        />
-                      </div>
-                    </div>
-
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-sm font-medium mb-2 block">
-                        Business Name
-                      </label>
-                      <input
+                      <label className="text-sm font-medium mb-2 block">First Name *</label>
+                      <input 
                         type="text"
-                        className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
-                        placeholder="Your Store / Brand Name"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        required
+                        disabled={isSubmitting}
+                        className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary disabled:opacity-50"
+                        placeholder="John"
                       />
                     </div>
-
                     <div>
-                      <label className="text-sm font-medium mb-2 block">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
-                        placeholder="you@yourstore.com"
+                      <label className="text-sm font-medium mb-2 block">Last Name *</label>
+                      <input 
+                        type="text"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        required
+                        disabled={isSubmitting}
+                        className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary disabled:opacity-50"
+                        placeholder="Doe"
                       />
                     </div>
-
-                    <div>
-                      <label className="text-sm font-medium mb-2 block">
-                        Phone
-                      </label>
-                      <input
-                        type="tel"
-                        className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
-                        placeholder="+27 00 000 0000"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="text-sm font-medium mb-2 block">
-                        Tell us about your business
-                      </label>
-                      <textarea
-                        className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary min-h-[100px]"
-                        placeholder="Describe your store, location, customer base, and the quantities you’re interested in stocking."
-                      />
-                    </div>
-
-                    <Button type="submit" size="xl" variant="nike" className="w-full">
-                      Submit Wholesale Application
-                    </Button>
-                  </form>
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">Business Name *</label>
+                    <input 
+                      type="text"
+                      name="businessName"
+                      value={formData.businessName}
+                      onChange={handleInputChange}
+                      required
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary disabled:opacity-50"
+                      placeholder="Your Store Name"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">Email *</label>
+                    <input 
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary disabled:opacity-50"
+                      placeholder="john@yourstore.com"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">Phone</label>
+                    <input 
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary disabled:opacity-50"
+                      placeholder="+27 00 000 0000"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">Tell us about your business</label>
+                    <textarea 
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary min-h-[100px] disabled:opacity-50"
+                      placeholder="Describe your retail business, location, and why you'd like to partner with TEES & GEES..."
+                    />
+                  </div>
+                  <Button type="submit" size="xl" variant="nike" className="w-full" disabled={isSubmitting}>
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                        Submitting...
+                      </>
+                    ) : (
+                      "Submit Application"
+                    )}
+                  </Button>
+                </form>
                 </CardContent>
               </Card>
             </div>
