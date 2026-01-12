@@ -12,10 +12,9 @@ const Header = () => {
   const { totalItems, setIsCartOpen } = useCart();
 
   const navLinks = [
-    { name: "New & Featured", href: "/shop", hasDropdown: false },
-    { name: "Men", href: "/men", hasDropdown: true },
-    { name: "Women", href: "/women", hasDropdown: true },
-    { name: "Kids", href: "/kids", hasDropdown: true },
+    { name: "Men", href: "/shop/men", hasDropdown: true },
+    { name: "Women", href: "/shop/women", hasDropdown: true },
+    { name: "Kids", href: "/shop/kids", hasDropdown: true },
     { name: "About", href: "/about", hasDropdown: false },
     { name: "Wholesale", href: "/wholesale", hasDropdown: false },
   ];

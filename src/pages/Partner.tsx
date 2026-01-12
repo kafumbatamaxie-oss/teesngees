@@ -186,8 +186,7 @@ const Partner = () => {
               Stock Authentic <span className="text-primary">Cape Town Map Tees</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl">
-              Partner with TeesnGees and stock premium custom-printed T-shirts
-              featuring Cape Town, South Africa, and Africa map designs. Wholesale
+              Be part of our distribution. Wholesale
               orders start from 50 units.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
