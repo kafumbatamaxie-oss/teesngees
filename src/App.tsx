@@ -11,6 +11,7 @@ import { HashRouter } from "react-router-dom";
 import Shop from "./pages/Shop";
 import Terms from "./pages/Terms";
 import About from "./pages/About";
+import Privacy from "./pages/Privacy";
 import { CheckoutFeedbackProvider } from "./context/CheckoutFeedbackContext";
 import Partner from "./pages/Partner";
 import ScrollToTop from "./components/ScrollToTop";
@@ -38,6 +39,8 @@ const App = () => (
             <Route path="/product/:id" element={<ProductDetail />} />           
             <Route path="/terms" element={<Terms />} />
             <Route path="/about" element={<About />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/collections" element={<Shop />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="shop/:gender" element={<Shop />} />
             <Route path="shop/:gender/:category" element={<Shop />} />

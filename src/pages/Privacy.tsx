@@ -1,5 +1,8 @@
 import { useEffect } from "react";
-import termsHero from "@/assets/terms-hero.jpg";
+import privacyHero from "@/assets/terms-hero.jpg"; // replace or reuse termsHero if needed
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import CartDrawer from "@/components/CartDrawer";
 
 export default function Privacy() {
   useEffect(() => {
@@ -7,159 +10,187 @@ export default function Privacy() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      {/* Hero */}
-    <section className="relative overflow-hidden">
-    {/* Background image */}
-    <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${termsHero})` }}
-    />
+    <div className="min-h-screen flex flex-col bg-background">
+        <Header />
+        <CartDrawer />
+        <main className="min-h-screen bg-background text-foreground">
+        {/* Hero */}
+        <section className="relative overflow-hidden">
+            {/* Background image */}
+            <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${privacyHero})` }}
+            />
 
-    {/* Overlay */}
-    <div className="absolute inset-0 bg-background/80 backdrop-blur-[1px]" />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-background/80 backdrop-blur-[1px]" />
 
-    {/* Content */}
-    <div className="relative mx-auto max-w-5xl px-6 py-24">
-        <h1 className="font-display text-4xl md:text-5xl animate-slide-up">
-        Terms & Conditions
-        </h1>
-        <p className="mt-4 max-w-3xl text-muted-foreground animate-fade-in">
-        Welcome to <strong>TEES &amp; GEES</strong>. By accessing or purchasing
-        from our website, you agree to the following Terms and Conditions.
-        </p>
+            {/* Content */}
+            <div className="relative mx-auto max-w-5xl px-6 py-24">
+            <h1 className="font-display text-4xl md:text-5xl animate-slide-up">
+                Privacy, Returns &amp; Exchanges
+            </h1>
+            <p className="mt-4 max-w-3xl text-muted-foreground animate-fade-in">
+                At <strong>TEES &amp; GEES</strong>, transparency matters. Please read
+                the information below carefully before placing your order.
+            </p>
+            </div>
+        </section>
+
+        {/* Content */}
+        <section className="mx-auto max-w-5xl px-6 py-16 space-y-12">
+            <Block title="Strengthened Returns & Exchanges Policy">
+            <p className="font-medium">Returns – Strict Conditions</p>
+            <ul className="list-disc pl-5 space-y-2">
+                <li>
+                Returns are accepted within 7 calendar days of delivery, in
+                accordance with the South African Consumer Protection Act.
+                </li>
+                <li>
+                Items must be unworn, unwashed, unused, and in original condition,
+                with all tags and packaging intact.
+                </li>
+                <li>
+                Items showing wear, washing, odour, damage, alteration, or misuse
+                will be rejected and returned at the customer’s expense.
+                </li>
+            </ul>
+            </Block>
+
+            <Block title="Non-Returnable Items">
+            <ul className="list-disc pl-5 space-y-2">
+                <li>
+                Sale, clearance, or promotional items are final sale unless
+                defective.
+                </li>
+                <li>
+                Custom, limited-edition, or special-release items may not be
+                eligible for return unless faulty.
+                </li>
+            </ul>
+            </Block>
+
+            <Block title="Size-Related Returns">
+            <ul className="list-disc pl-5 space-y-2">
+                <li>
+                Customers are responsible for selecting the correct size using the
+                Size Guide.
+                </li>
+                <li>
+                Size-related returns are accepted once per order only and subject
+                to availability.
+                </li>
+                <li>
+                Shipping costs for size-related returns are non-refundable and
+                covered by the customer.
+                </li>
+            </ul>
+            </Block>
+
+            <Block title="Faulty or Incorrect Items">
+            <ul className="list-disc pl-5 space-y-2">
+                <li>
+                Claims must be reported within 48 hours of delivery with clear
+                photographic evidence.
+                </li>
+                <li>
+                Approved faulty-item returns may be repaired, replaced, or refunded
+                at our discretion.
+                </li>
+            </ul>
+            </Block>
+
+            <Block title="International Shipping">
+            <ul className="list-disc pl-5 space-y-2">
+                <li>TEES &amp; GEES ships internationally to selected countries.</li>
+                <li>
+                Delivery times vary due to destination, customs, and courier
+                processing.
+                </li>
+                <li>
+                Customers are responsible for customs duties, import taxes, and
+                clearance fees.
+                </li>
+                <li>
+                We are not responsible for delays, seizures, or charges imposed by
+                customs authorities.
+                </li>
+                <li>International shipping fees are non-refundable.</li>
+            </ul>
+            </Block>
+
+            <Block title="Privacy Policy (POPIA-Compliant)">
+            <p>
+                TEES &amp; GEES collects and processes personal information strictly
+                for:
+            </p>
+            <ul className="list-disc pl-5 space-y-2">
+                <li>Order processing and fulfilment</li>
+                <li>Customer communication and support</li>
+                <li>Legal and accounting requirements</li>
+            </ul>
+            <p className="mt-4">
+                We do not sell, rent, or trade personal information. Customer data is
+                shared only with:
+            </p>
+            <ul className="list-disc pl-5 space-y-2">
+                <li>Payment gateways</li>
+                <li>Courier and logistics partners</li>
+                <li>Essential website service providers</li>
+            </ul>
+            <p className="mt-4">
+                All data is handled in accordance with the Protection of Personal
+                Information Act (POPIA). Customers may request access, correction, or
+                deletion of their data, subject to legal requirements.
+            </p>
+            </Block>
+
+            <Block title="Returns & Refunds">
+            <p className="font-medium">Returns</p>
+            <ul className="list-disc pl-5 space-y-2">
+                <li>Accepted within 7 days of delivery.</li>
+                <li>
+                Items must be unworn, unwashed, and in original condition with tags
+                attached.
+                </li>
+                <li>Sale or discounted items are final sale unless faulty.</li>
+            </ul>
+
+            <p className="mt-4 font-medium">Exchanges</p>
+            <ul className="list-disc pl-5 space-y-2">
+                <li>Subject to stock availability.</li>
+                <li>
+                Customers cover return shipping unless the item is faulty or
+                incorrect.
+                </li>
+            </ul>
+
+            <p className="mt-4 font-medium">Refunds</p>
+            <ul className="list-disc pl-5 space-y-2">
+                <li>
+                Refunds are processed to the original payment method after
+                inspection.
+                </li>
+                <li>Shipping fees are non-refundable.</li>
+                <li>Processing times vary by payment provider.</li>
+            </ul>
+            </Block>
+
+            <Block title="Size Advice">
+            Our garments are slim-fit. Please consult the Size Guide before
+            ordering. If you prefer a relaxed fit, we recommend choosing one size
+            up. If you’re unsure, contact us before placing your order — we’re happy
+            to help.
+            </Block>
+
+            <Block title="Final Legal Note">
+            These policies are designed to protect both our customers and our brand
+            while ensuring fairness, transparency, and product integrity.
+            </Block>
+        </section>
+        </main>
+        <Footer />
     </div>
-    </section>
-
-      {/* Content */}
-      <section className="mx-auto max-w-5xl px-6 py-16 space-y-12">
-        <Block title="1. About Us">
-          TEES &amp; GEES is a proudly South African clothing brand based in Cape
-          Town. All products are designed and manufactured locally.
-        </Block>
-
-        <Block title="2. Products & Availability">
-          <ul className="list-disc pl-5 space-y-2">
-            <li>All products are subject to availability.</li>
-            <li>
-              Product images, colours, and descriptions are shown as accurately
-              as possible; slight variations may occur due to manufacturing and
-              screen printing.
-            </li>
-            <li>Measurements may vary by ±1–2 cm as outlined in our Size Guide.</li>
-          </ul>
-        </Block>
-
-        <Block title="3. Pricing & Payment">
-          <ul className="list-disc pl-5 space-y-2">
-            <li>All prices are displayed in South African Rand (ZAR).</li>
-            <li>Prices may change without prior notice.</li>
-            <li>Payment must be made in full before orders are processed.</li>
-            <li>
-              Secure third-party payment gateways are used. TEES &amp; GEES does
-              not store payment details.
-            </li>
-          </ul>
-        </Block>
-
-        <Block title="4. Orders & Order Confirmation">
-          <ul className="list-disc pl-5 space-y-2">
-            <li>Order confirmation will be sent via email.</li>
-            <li>
-              Confirmation does not guarantee acceptance; orders may be cancelled
-              due to stock issues, pricing errors, or suspected fraud.
-            </li>
-          </ul>
-        </Block>
-
-        <Block title="5. Shipping & Delivery">
-          <ul className="list-disc pl-5 space-y-2">
-            <li>Orders are processed within the stated processing time.</li>
-            <li>Delivery times are estimates and may vary.</li>
-            <li>
-              TEES &amp; GEES is not responsible for courier delays or
-              circumstances beyond our control.
-            </li>
-            <li>
-              Risk passes to the customer once the order is handed to the courier.
-            </li>
-          </ul>
-        </Block>
-
-        <Block title="6. Returns & Exchanges">
-          <p className="font-medium">Returns</p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>Accepted within 7 days of delivery.</li>
-            <li>Items must be unworn, unwashed, and in original condition.</li>
-            <li>Sale or discounted items may not be eligible unless defective.</li>
-          </ul>
-
-          <p className="mt-4 font-medium">Exchanges</p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>Subject to stock availability.</li>
-            <li>
-              Customers cover return shipping unless the item is faulty or
-              incorrect.
-            </li>
-          </ul>
-
-          <p className="mt-4 font-medium">Non-Returnable Items</p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>Items showing wear, washing, or misuse will be rejected.</li>
-          </ul>
-        </Block>
-
-        <Block title="7. Sizing & Fit Disclaimer">
-          <ul className="list-disc pl-5 space-y-2">
-            <li>Garments are slim-fit unless stated otherwise.</li>
-            <li>Customers are responsible for selecting the correct size.</li>
-            <li>Size-related returns may incur shipping costs.</li>
-          </ul>
-        </Block>
-
-        <Block title="8. Care Instructions">
-          Please follow care instructions provided with each garment. TEES &amp;
-          GEES is not responsible for damage caused by incorrect care.
-        </Block>
-
-        <Block title="9. Intellectual Property">
-          All website content, including logos, designs, text, and images, is the
-          property of TEES &amp; GEES and may not be used without written
-          permission.
-        </Block>
-
-        <Block title="10. Privacy & Personal Information">
-          Personal information is handled in accordance with the Protection of
-          Personal Information Act (POPIA) and used only for order processing,
-          support, and service improvement.
-        </Block>
-
-        <Block title="11. Limitation of Liability">
-          Liability is limited to the value of the purchased product. TEES &amp;
-          GEES is not responsible for indirect or consequential damages.
-        </Block>
-
-        <Block title="12. Governing Law">
-          These Terms are governed by the laws of the Republic of South Africa,
-          and disputes fall under South African courts.
-        </Block>
-
-        <Block title="13. Changes to These Terms">
-          TEES &amp; GEES may update these Terms at any time. Continued use of the
-          website constitutes acceptance of changes.
-        </Block>
-
-        <Block title="14. Contact Information">
-          For questions or support, please contact us using the details provided
-          on our website.
-        </Block>
-
-        <Block title="Final Legal Note">
-          These policies are designed to protect both our customers and our brand
-          while ensuring fairness, transparency, and product integrity.
-        </Block>
-      </section>
-    </main>
   );
 }
 

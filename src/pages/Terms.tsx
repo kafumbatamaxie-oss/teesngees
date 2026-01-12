@@ -1,5 +1,8 @@
 import { useEffect } from "react";
 import termsHero from "@/assets/terms-hero.jpg";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import CartDrawer from "@/components/CartDrawer";
 
 export default function Terms() {
   useEffect(() => {
@@ -7,7 +10,11 @@ export default function Terms() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    
+    <div className="min-h-screen flex flex-col bg-background">
+        <Header />
+        <CartDrawer />
+        <main className="min-h-screen bg-background text-foreground">
       {/* Hero */}
     <section className="relative overflow-hidden">
     {/* Background image */}
@@ -160,6 +167,8 @@ export default function Terms() {
         </Block>
       </section>
     </main>
+        <Footer />
+    </div>
   );
 }
 

@@ -36,8 +36,8 @@ const Header = () => {
               </Link>
             </div>
             <div className="hidden md:flex items-center gap-4">
-              <Link to="/stores" className="hover:text-muted-foreground transition-colors">
-                Find a Store
+              <Link to="/privacy" className="hover:text-muted-foreground transition-colors">
+                Privacy
               </Link>
               <span className="text-border">|</span>
               <Link to="/wholesale" className="hover:text-muted-foreground transition-colors">
