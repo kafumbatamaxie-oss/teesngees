@@ -20,7 +20,7 @@ const TrendingProducts = () => {
             <h2 className="text-3xl md:text-4xl font-display uppercase">
               Available Stock In Store
             </h2>
-            <p className="flex text-sm items-center justify-between mb-2">({totalItemsInStore} Items)</p>
+           
           </div>
           <Link
             to="/shop"

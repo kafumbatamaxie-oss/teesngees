@@ -79,7 +79,7 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
               {product.category}
             </p>
             <p className="text-sm text-muted-foreground">
-              Category: {product.genders[0]}
+              For: {product.genders[0]}
             </p>
           </div>
         </div>

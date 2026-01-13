@@ -24,8 +24,17 @@ export interface Product {
   isNew: boolean;
 }
 
+const shuffle = (array) => {
+  const result = [...array]
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[result[i], result[j]] = [result[j], result[i]]
+  }
+  return result
+}
 
-export const products: Product[] = [
+
+const rawProducts = [
     {
     id: "108",
     name: "The Mother City — City of All Mothers",
@@ -389,90 +398,11 @@ export const products: Product[] = [
 
   
 
-  //  {
-  //   id: "109",
-  //   name: "Cape Town — South Africa (Half-Moon Design)",
-  //   genders: ["men", "women"],
-  //   category: "Round Neck Tee",
-  //   categorySlug: "round-neck-tee",
-  //   price: 280,
-  //   originalPrice: "550",
-  //   isBestSeller: true,
-  //   isNew: false,
-  //   image: "/images/store/african-map-tee-default.png",
-  //   images: [
-  //     "/images/store/african-map-tee-bottle-green-1.png",
-  //     "/images/store/african-map-tee-bottle-green-2.png",
-  //     "/images/store/african-map-tee-bottle-green-1.png",
-  //   ],
-  //   variants: [
-  //     { color: "Bottle green", size: "XS | 43 | (86)", quantity: 1 },
-  //     { color: "Bottle green", size: "S | 46 | (92)", quantity: 3 },
-  //     { color: "Bottle green", size: "M | 50 | (100)", quantity: 2 },
-  //     { color: "Bottle green", size: "L  53 (106)", quantity: 6 },
-  //     { color: "Bottle green", size: "XL", quantity: 2 },
-  //     { color: "Bottle green", size: "XXL", quantity: 3 },
-  //     { color: "Bottle green", size: "XXXL", quantity: 2 },
-  //   ],
-  //   description: "A clean, minimalist design that places Cape Town in a bold half-moon arc, anchored by South Africa below. This print positions Cape Town as a world-class destination — proud, confident, and instantly recognisable. Designed for locals and global travellers alike, it represents movement, travel, and admiration for one of the world’s most loved cities. Simple. Iconic. Timeless.",
-  //  },
-
-  //  {
-  //   id: "110",
-  //   name: "Gugulethu — Our Pride",
-  //   genders: ["men", "women"],
-  //   category: "Round Neck Tee",
-  //   categorySlug: "round-neck-tee",
-  //   price: 280,
-  //   originalPrice: "550",
-  //   isBestSeller: true,
-  //   isNew: false,
-  //   image: "/images/store/african-map-tee-default.png",
-  //   images: [
-  //     "/images/store/african-map-tee-bottle-green-1.png",
-  //     "/images/store/african-map-tee-bottle-green-2.png",
-  //     "/images/store/african-map-tee-bottle-green-1.png",
-  //   ],
-  //   variants: [
-  //     { color: "Bottle green", size: "XS | 43 | (86)", quantity: 1 },
-  //     { color: "Bottle green", size: "S | 46 | (92)", quantity: 3 },
-  //     { color: "Bottle green", size: "M | 50 | (100)", quantity: 2 },
-  //     { color: "Bottle green", size: "L  53 (106)", quantity: 6 },
-  //     { color: "Bottle green", size: "XL", quantity: 2 },
-  //     { color: "Bottle green", size: "XXL", quantity: 3 },
-  //     { color: "Bottle green", size: "XXXL", quantity: 2 },
-  //   ],
-  //   description: "Gugulethu is more than a place — it is our pride. Founded as Cape Town’s second township after Langa, Gugulethu became home to families seeking space, dignity, and growth. The name itself means “Our Pride”, reflecting resilience, hope, and collective progress."
-  //  },
-  //  {
-  //   id: "106",
-  //   name: "Kapa lo Dumo — The Famous Cape",
-  //   genders: ["men", "women"],
-  //   category: "Round Neck Tee",
-  //   categorySlug: "round-neck-tee",
-  //   price: 280,
-  //   originalPrice: "550",
-  //   isBestSeller: true,
-  //   isNew: false,
-  //   image: "/images/store/african-map-tee-default.png",
-  //   images: [
-  //     "/images/store/african-map-tee-bottle-green-1.png",
-  //     "/images/store/african-map-tee-bottle-green-2.png",
-  //     "/images/store/african-map-tee-bottle-green-1.png",
-  //   ],
-  //   variants: [
-  //     { color: "Bottle green", size: "XS | 43 | (86)", quantity: 1 },
-  //     { color: "Bottle green", size: "S | 46 | (92)", quantity: 3 },
-  //     { color: "Bottle green", size: "M | 50 | (100)", quantity: 2 },
-  //     { color: "Bottle green", size: "L  53 (106)", quantity: 6 },
-  //     { color: "Bottle green", size: "XL", quantity: 2 },
-  //     { color: "Bottle green", size: "XXL", quantity: 3 },
-  //     { color: "Bottle green", size: "XXXL", quantity: 2 },
-  //   ],
-  //   description: '“Kapa lo Dumo” is a widely used South African nickname for Cape Town, meaning “The Famous Cape.” This print celebrates how Cape Town is spoken about across the country — admired, referenced, and respected far beyond its borders. While not always known globally, the name carries deep local recognition and cultural meaning. A tribute to how the city lives in conversation, memory, and reputation.',
-  //  },
   
-];
+]
+
+
+export const products: Product[] = shuffle(rawProducts)
 
 
 // export const upcomingProducts: Product[] = [

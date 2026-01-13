@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard";
@@ -7,7 +7,11 @@ import { products, Product } from "@/data/products";
 
 const BestSellers = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const bestSellers = products.filter((p) => p.isBestSeller);
+  
+  const bestSellers = useMemo(() => {
+    return products.filter(p => p.isBestSeller).slice(0, 4)
+  }, [products])
+
 
   return (
     <section className="py-16 bg-nike-light-gray">
