@@ -22,9 +22,10 @@ interface PaymentRequest {
   returnUrl: string;
   cancelUrl: string;
   notifyUrl: string;
+  sandbox?: boolean; // optional, default true
 }
 
-// Use Web Crypto MD5 (safe)
+// MD5 via Web Crypto
 async function md5(string: string): Promise<string> {
   const buffer = new TextEncoder().encode(string);
   const hashBuffer = await crypto.subtle.digest("MD5", buffer);
@@ -39,11 +40,6 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    // --- SANDBOX credentials ---
-    const merchantId = "10000100";
-    const merchantKey = "46f0cd694581a";
-    const passphrase = ""; // No passphrase for sandbox
-
     const {
       items,
       customerEmail,
@@ -52,27 +48,38 @@ const handler = async (req: Request): Promise<Response> => {
       returnUrl,
       cancelUrl,
       notifyUrl,
+      sandbox = true,
     }: PaymentRequest = await req.json();
 
     if (!items || items.length === 0) {
       throw new Error("Cart is empty");
     }
 
+    // --- Credentials from env or sandbox defaults ---
+    const merchantId = sandbox
+      ? Deno.env.get("PAYFAST_SANDBOX_MERCHANT_ID") || "10000100"
+      : Deno.env.get("PAYFAST_MERCHANT_ID");
+    const merchantKey = sandbox
+      ? Deno.env.get("PAYFAST_SANDBOX_MERCHANT_KEY") || "46f0cd694581a"
+      : Deno.env.get("PAYFAST_MERCHANT_KEY");
+    const passphrase = sandbox
+      ? Deno.env.get("PAYFAST_SANDBOX_PASSPHRASE") || ""
+      : Deno.env.get("PAYFAST_PASSPHRASE") || "";
+
+    if (!merchantId || !merchantKey) throw new Error("PayFast credentials not set");
+
     // --- Calculate total ---
     const totalAmount = items
       .reduce((sum, item) => sum + item.price * item.quantity, 0)
       .toFixed(2);
 
-    // --- Unique payment ID ---
     const paymentId = `TG-${Date.now()}-${Math.random().toString(36).substring(2, 10)}`;
 
-    // --- Item description ---
     const itemDescription = items
-      .map((item) => `${item.name} (${item.size}, ${item.color}) x${item.quantity}`)
+      .map((i) => `${i.name} (${i.size}, ${i.color}) x${i.quantity}`)
       .join(", ")
       .substring(0, 255);
 
-    // --- PayFast data (fixed order) ---
     const payfastData: Record<string, string> = {
       merchant_id: merchantId,
       merchant_key: merchantKey,
@@ -88,8 +95,8 @@ const handler = async (req: Request): Promise<Response> => {
       item_description: itemDescription,
     };
 
-    // --- Parameter order required by PayFast ---
-    const payfastOrderedKeys = [
+    // Ordered keys for signature
+    const keys = [
       "merchant_id",
       "merchant_key",
       "return_url",
@@ -104,21 +111,21 @@ const handler = async (req: Request): Promise<Response> => {
       "item_description",
     ];
 
-    // --- Generate signature ---
-    const signatureString = payfastOrderedKeys
+    // Build signature string
+    let signatureString = keys
       .filter((key) => payfastData[key] !== "")
-      .map(
-        (key) =>
-          `${key}=${encodeURIComponent(payfastData[key]).replace(/%20/g, "+")}`
-      )
+      .map((key) => `${key}=${encodeURIComponent(payfastData[key]).replace(/%20/g, "+")}`)
       .join("&");
+
+    if (passphrase) {
+      signatureString += `&passphrase=${encodeURIComponent(passphrase).replace(/%20/g, "+")}`;
+    }
 
     payfastData.signature = await md5(signatureString);
 
-    // --- Always use sandbox host ---
-    const payfastHost = "sandbox.payfast.co.za";
+    const payfastHost = sandbox ? "sandbox.payfast.co.za" : "www.payfast.co.za";
 
-    console.log("PayFast payment created:", { paymentId, totalAmount, sandbox: true });
+    console.log("PayFast payment created:", { paymentId, totalAmount, sandbox });
 
     return new Response(
       JSON.stringify({
@@ -127,21 +134,15 @@ const handler = async (req: Request): Promise<Response> => {
         payfastUrl: `https://${payfastHost}/eng/process`,
         payfastData,
       }),
-      {
-        status: 200,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
-      }
+      { status: 200, headers: { "Content-Type": "application/json", ...corsHeaders } }
     );
-  } catch (error: unknown) {
-    const errorMessage = error instanceof Error ? error.message : "Unknown error";
-    console.error("Error creating PayFast payment:", errorMessage);
-    return new Response(
-      JSON.stringify({ error: errorMessage }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
-      }
-    );
+  } catch (err: unknown) {
+    const errorMessage = err instanceof Error ? err.message : "Unknown error";
+    console.error("PayFast error:", errorMessage);
+    return new Response(JSON.stringify({ error: errorMessage }), {
+      status: 500,
+      headers: { "Content-Type": "application/json", ...corsHeaders },
+    });
   }
 };
 

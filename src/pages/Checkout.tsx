@@ -61,23 +61,26 @@ const Checkout = () => {
     try {
       const baseUrl = window.location.origin;
       
-      const { data, error } = await supabase.functions.invoke("create-payfast-payment", {
+     // When invoking function
+     const { data, error } = await supabase.functions.invoke("create-payfast-payment", {
         body: {
-          items: items.map((item) => ({
+            items: items.map((item) => ({
             name: item.product.name,
             quantity: item.quantity,
             price: item.product.price,
             size: item.size,
             color: item.color,
-          })),
-          customerEmail: customerInfo.email,
-          customerFirstName: customerInfo.firstName,
-          customerLastName: customerInfo.lastName,
-          returnUrl: `${baseUrl}/checkout/success`,
-          cancelUrl: `${baseUrl}/checkout/cancel`,
-          notifyUrl: `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/payfast-notify`,
-        },
-      });
+            })),
+            customerEmail: customerInfo.email,
+            customerFirstName: customerInfo.firstName,
+            customerLastName: customerInfo.lastName,
+            returnUrl: `${baseUrl}/checkout/success`,
+            cancelUrl: `${baseUrl}/checkout/cancel`,
+            notifyUrl: `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/payfast-notify`,
+                sandbox: true, // toggle to false for production/live
+            },
+    });
+
 
       if (error) throw error;
 
