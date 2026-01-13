@@ -159,6 +159,8 @@ const ProductDetail = () => {
           <div className="space-y-6">
             <div>
               <p className="text-nike-orange">{product.category}</p>
+              <p className=""> For {product.genders[0]}</p>
+
               <h1 className="text-3xl font-display">{product.name}</h1>
               <p className="text-2xl font-bold mt-2">R{product.price}</p>
 
@@ -224,7 +226,7 @@ const ProductDetail = () => {
                     }`}
                   >
                     {size}
-                    {quantity > 0 && quantity <= 3 && (
+                    {quantity > 0 &&  (
                       <span className="block text-xs text-nike-red">
                         {quantity} left
                       </span>
