@@ -35,8 +35,9 @@ const shuffle = (array) => {
 
 
 const rawProducts = [
+  // The Mother City — City of All Mothers
     {
-    id: "108",
+    id: "1033442248",
     name: "The Mother City — City of All Mothers",
     genders: ["men"],
     category: "Round Neck Tee",
@@ -63,7 +64,7 @@ const rawProducts = [
     description: "Cape Town is known as The Mother City — a place of beauty, contrast, and deep emotional pull. This print reflects the city’s nurturing yet unpredictable nature: calm and wild, warm and stormy — sometimes all in one day. Much like a mother, the city protects, challenges, and inspires those who call it home. More than a destination, Cape Town is a feeling — welcoming, grounding, and unforgettable.",
     },
     {
-    id: "208",
+    id: "25555452208",
     name: "The Mother City — City of All Mothers",
     genders: ["kids"],
     category: "Round Neck Tee",
@@ -90,7 +91,7 @@ const rawProducts = [
     description: "Cape Town is known as The Mother City — a place of beauty, contrast, and deep emotional pull. This print reflects the city’s nurturing yet unpredictable nature: calm and wild, warm and stormy — sometimes all in one day. Much like a mother, the city protects, challenges, and inspires those who call it home. More than a destination, Cape Town is a feeling — welcoming, grounding, and unforgettable.",
     },
     {
-    id: "308",
+    id: "30788888",
     name: "The Mother City — City of All Mothers",
     genders: ["women"],
     category: "Round Neck Tee",
@@ -117,8 +118,11 @@ const rawProducts = [
     ],
     description: "Cape Town is known as The Mother City — a place of beauty, contrast, and deep emotional pull. This print reflects the city’s nurturing yet unpredictable nature: calm and wild, warm and stormy — sometimes all in one day. Much like a mother, the city protects, challenges, and inspires those who call it home. More than a destination, Cape Town is a feeling — welcoming, grounding, and unforgettable.",
     },
+
+
+    // Cape Town
     {
-      id: "101",
+      id: "1111954255654855521456501",
       name: "Cape Town",
       genders: ["men"],
       category: "Round Neck Tee",
@@ -170,40 +174,40 @@ const rawProducts = [
       { color: "Bottle green", size: "XXXL", quantity: 2 },
     ],
     description: "Inspired by Cape Town’s unique position at the southern tip of Africa, this print celebrates the idea that the sun sets last here — and symbolically, never truly goes down. Where the Sun Never Sets” speaks to more than geography. It reflects a city that is constantly alive — vibrant by day, electric by night. A place where creativity, culture, and ambition move around the clock. One of our best-selling prints, this design captures Cape Town as a city of light, motion, and endless possibility.",
-   },
+    },
     {
-    id: "301",
-    name: "Cape Town",
-    genders: ["women"],
-    category: "Round Neck Tee",
-    categorySlug: "round-neck-tee",
-    price: 280,
-    originalPrice: "550",
-    isBestSeller: true,
-    isNew: false,
-    image: "/images/women/cape-town-sun-never-set-women.png",
-    images: [
-      "/images/women/cape-town-sun-never-set-women.png",
-      "/images/women/cape-town-sun-never-set-women.png",
-      "/images/women/cape-town-sun-never-set-women.png",
-     
-    ],
-    variants: [
-      { color: "Bottle green", size: "XS", quantity: 2 },
-      { color: "Bottle green", size: "S", quantity: 3 },
-      { color: "Bottle green", size: "M", quantity: 3 },
-      { color: "Bottle green", size: "L", quantity: 5 },
-      { color: "Bottle green", size: "XL", quantity: 3 },
-      { color: "Bottle green", size: "XXL", quantity: 2 },
-      { color: "Bottle green", size: "XXXL", quantity: 2 },
-    ],
-    description: "Inspired by Cape Town’s unique position at the southern tip of Africa, this print celebrates the idea that the sun sets last here — and symbolically, never truly goes down. Where the Sun Never Sets” speaks to more than geography. It reflects a city that is constantly alive — vibrant by day, electric by night. A place where creativity, culture, and ambition move around the clock. One of our best-selling prints, this design captures Cape Town as a city of light, motion, and endless possibility.",
-   },
+      id: "301",
+      name: "Cape Town",
+      genders: ["women"],
+      category: "Round Neck Tee",
+      categorySlug: "round-neck-tee",
+      price: 280,
+      originalPrice: "550",
+      isBestSeller: true,
+      isNew: false,
+      image: "/images/women/cape-town-sun-never-set-women.png",
+      images: [
+        "/images/women/cape-town-sun-never-set-women.png",
+        "/images/women/cape-town-sun-never-set-women.png",
+        "/images/women/cape-town-sun-never-set-women.png",
+      
+      ],
+      variants: [
+        { color: "Bottle green", size: "XS", quantity: 2 },
+        { color: "Bottle green", size: "S", quantity: 3 },
+        { color: "Bottle green", size: "M", quantity: 3 },
+        { color: "Bottle green", size: "L", quantity: 5 },
+        { color: "Bottle green", size: "XL", quantity: 3 },
+        { color: "Bottle green", size: "XXL", quantity: 2 },
+        { color: "Bottle green", size: "XXXL", quantity: 2 },
+      ],
+      description: "Inspired by Cape Town’s unique position at the southern tip of Africa, this print celebrates the idea that the sun sets last here — and symbolically, never truly goes down. Where the Sun Never Sets” speaks to more than geography. It reflects a city that is constantly alive — vibrant by day, electric by night. A place where creativity, culture, and ambition move around the clock. One of our best-selling prints, this design captures Cape Town as a city of light, motion, and endless possibility.",
+    },
 
    
-
+    // Kas’lam Cape Town
    {
-    id: "103",
+    id: "190003",
     name: "Kas’lam Cape Town",
     genders: ["men"],
     category: "Round Neck Tee",
@@ -230,7 +234,7 @@ const rawProducts = [
     description: "A detailed map design featuring 54 townships across Cape Town, honouring the places that shaped the city’s culture, sound, and soul. This print celebrates township life as the heartbeat of the Mother City.",
    },
    {
-    id: "203",
+    id: "2111111111103",
     name: "Kas’lam Cape Town",
     genders: ["kids"],
     category: "Round Neck Tee",
@@ -258,7 +262,7 @@ const rawProducts = [
     description: "A detailed map design featuring 54 townships across Cape Town, honouring the places that shaped the city’s culture, sound, and soul. This print celebrates township life as the heartbeat of the Mother City.",
    },
    {
-    id: "303",
+    id: "30222223",
     name: "Kas’lam Cape Town",
     genders: ["women"],
     category: "Round Neck Tee",
@@ -284,8 +288,11 @@ const rawProducts = [
     ],
     description: "A detailed map design featuring 54 townships across Cape Town, honouring the places that shaped the city’s culture, sound, and soul. This print celebrates township life as the heartbeat of the Mother City.",
    },
+
+
+    // Africa Map — Cape Town Origin
    {
-    id: "102",
+    id: "1023333332257",
     name: "Africa Map — Cape Town Origin",
     genders: ["men"],
     category: "Round Neck Tee",
@@ -311,9 +318,39 @@ const rawProducts = [
     ],
     description: "This minimalist Africa map print marks the very bottom of the continent with a single dot — Cape Town. Simple yet powerful, it represents origin, grounding, and perspective. It speaks to the brand’s roots and reminds the wearer that every journey starts somewhere. A quiet statement of identity and place, this print is about knowing where you come from — and standing firmly in it.",
    },
-   
    {
-    id: "104",
+    id: "168989866496332502",
+    name: "Africa Map — Cape Town Origin",
+    genders: ["women"],
+    category: "Round Neck Tee",
+    categorySlug: "round-neck-tee",
+    price: 280,
+    originalPrice: "550",
+    isBestSeller: true,
+    isNew: false,
+    image: "/images/women/africa-map-cape-town-origin-women.png",
+    images: [
+      "/images/women/africa-map-cape-town-origin-women.png",
+      "/images/women/africa-map-cape-town-origin-women.png",
+      "/images/women/africa-map-cape-town-origin-women.png",
+    ],
+    variants: [
+      { color: "Bottle green", size: "XS", quantity: 1 },
+      { color: "Bottle green", size: "S", quantity: 3 },
+      { color: "Bottle green", size: "M", quantity: 2 },
+      { color: "Bottle green", size: "L", quantity: 6 },
+      { color: "Bottle green", size: "XL", quantity: 2 },
+      { color: "Bottle green", size: "XXL", quantity: 3 },
+      { color: "Bottle green", size: "XXXL", quantity: 2 },
+    ],
+    description: "This minimalist Africa map print marks the very bottom of the continent with a single dot — Cape Town. Simple yet powerful, it represents origin, grounding, and perspective. It speaks to the brand’s roots and reminds the wearer that every journey starts somewhere. A quiet statement of identity and place, this print is about knowing where you come from — and standing firmly in it.",
+   },
+
+   
+
+  //  Kas’lam Africa
+   {
+    id: "1055555555577884",
     name: "Kas’lam Africa",
     genders: ["men"],
     category: "Round Neck Tee",
@@ -339,8 +376,37 @@ const rawProducts = [
     ],
     description: "An African continent map featuring all 54 African countries, unified under the Kas’lam concept. It represents Pan-African identity — different nations, one shared home.",
    },
+   {
+    id: "666304",
+    name: "Kas’lam Africa",
+    genders: ["women"],
+    category: "Round Neck Tee",
+    categorySlug: "round-neck-tee",
+    price: 280,
+    originalPrice: "550",
+    isBestSeller: true,
+    isNew: false,
+    image: "/images/women/kaslam-africa-women.png",
+    images: [
+      "/images/women/kaslam-africa-women.png",
+      "/images/women/kaslam-africa-women.png",
+      "/images/women/kaslam-africa-women.png",
+    ],
+    variants: [
+      { color: "Bottle green", size: "XS", quantity: 1 },
+      { color: "Bottle green", size: "S", quantity: 3 },
+      { color: "Bottle green", size: "M", quantity: 2 },
+      { color: "Bottle green", size: "L", quantity: 6 },
+      { color: "Bottle green", size: "XL", quantity: 2 },
+      { color: "Bottle green", size: "XXL", quantity: 3 },
+      { color: "Bottle green", size: "XXXL", quantity: 2 },
+    ],
+    description: "An African continent map featuring all 54 African countries, unified under the Kas’lam concept. It represents Pan-African identity — different nations, one shared home.",
+   },
+
+    // The Big Five — Africa’s Icons
     {
-    id: "107",
+    id: "1321298000000007",
     name: "The Big Five — Africa’s Icons",
     genders: ["men"],
     category: "Round Neck Tee",
@@ -365,10 +431,38 @@ const rawProducts = [
       { color: "Bottle green", size: "XXXL", quantity: 2 },
     ],
     description: "This print showcases Africa’s legendary Big Five: Lion, Elephant, Buffalo, Rhino, and Leopard, arranged in a powerful half-moon design around the African continent. Originally named by early game hunters, the Big Five have come to symbolise Africa’s wildlife heritage and conservation legacy. With no captions, the design allows the imagery to speak for itself — bold, balanced, and instantly recognisable. A timeless celebration of Africa’s natural power.",
-   },
+    },
+    {
+    id: "32111107",
+    name: "The Big Five — Africa’s Icons",
+    genders: ["women"],
+    category: "Round Neck Tee",
+    categorySlug: "round-neck-tee",
+    price: 280,
+    originalPrice: "550",
+    isBestSeller: true,
+    isNew: false,
+    image: "/images/women/big-five-women.png",
+    images: [
+      "/images/women/big-five-women.png",
+      "/images/women/big-five-women.png",
+      "/images/women/big-five-women.png",
+    ],
+    variants: [
+      { color: "Bottle green", size: "XS", quantity: 1 },
+      { color: "Bottle green", size: "S", quantity: 3 },
+      { color: "Bottle green", size: "M", quantity: 2 },
+      { color: "Bottle green", size: "L", quantity: 6 },
+      { color: "Bottle green", size: "XL", quantity: 2 },
+      { color: "Bottle green", size: "XXL", quantity: 3 },
+      { color: "Bottle green", size: "XXXL", quantity: 2 },
+    ],
+    description: "This print showcases Africa’s legendary Big Five: Lion, Elephant, Buffalo, Rhino, and Leopard, arranged in a powerful half-moon design around the African continent. Originally named by early game hunters, the Big Five have come to symbolise Africa’s wildlife heritage and conservation legacy. With no captions, the design allows the imagery to speak for itself — bold, balanced, and instantly recognisable. A timeless celebration of Africa’s natural power.",
+    },
 
+    // Kas’lam Soweto
    {
-    id: "105",
+    id: "00005105",
     name: "Kas’lam Soweto",
     genders: ["men"],
     category: "Round Neck Tee",
@@ -384,16 +478,104 @@ const rawProducts = [
       "/images/men/kaslam-soweto-men.png",
     ],
     variants: [
-      { color: "Bottle green", size: "XS | 43 | (86)", quantity: 1 },
-      { color: "Bottle green", size: "S | 46 | (92)", quantity: 3 },
-      { color: "Bottle green", size: "M | 50 | (100)", quantity: 2 },
-      { color: "Bottle green", size: "L  53 (106)", quantity: 6 },
+      { color: "Bottle green", size: "XS", quantity: 1 },
+      { color: "Bottle green", size: "S", quantity: 3 },
+      { color: "Bottle green", size: "M", quantity: 2 },
+      { color: "Bottle green", size: "L", quantity: 6 },
       { color: "Bottle green", size: "XL", quantity: 2 },
       { color: "Bottle green", size: "XXL", quantity: 3 },
       { color: "Bottle green", size: "XXXL", quantity: 2 },
     ],
     description: "Dedicated to Soweto, the largest and most influential township in Africa, this design features 54 of Soweto’s oldest and most iconic townships. It honours resistance, history, and cultural legacy. Each Kas’lam print is a wearable map of pride — where place becomes identity.",
    },
+   {
+    id: "3052222222222222222222222222222222",
+    name: "Kas’lam Soweto",
+    genders: ["women"],
+    category: "Round Neck Tee",
+    categorySlug: "round-neck-tee",
+    price: 280,
+    originalPrice: "550",
+    isBestSeller: true,
+    isNew: false,
+    image: "/images/women/kaslam-soweto-women.png",
+    images: [
+      "/images/women/kaslam-soweto-women.png",
+      "/images/women/kaslam-soweto-women.png",
+      "/images/women/kaslam-soweto-women.png",
+    ],
+    variants: [
+      { color: "Bottle green", size: "XS", quantity: 1 },
+      { color: "Bottle green", size: "S", quantity: 3 },
+      { color: "Bottle green", size: "M", quantity: 2 },
+      { color: "Bottle green", size: "L", quantity: 6 },
+      { color: "Bottle green", size: "XL", quantity: 2 },
+      { color: "Bottle green", size: "XXL", quantity: 3 },
+      { color: "Bottle green", size: "XXXL", quantity: 2 },
+    ],
+    description: "Dedicated to Soweto, the largest and most influential township in Africa, this design features 54 of Soweto’s oldest and most iconic townships. It honours resistance, history, and cultural legacy. Each Kas’lam print is a wearable map of pride — where place becomes identity.",
+   },
+
+
+  //  Cape Town Sun Never Set
+   {
+    id: "7077777777771",
+    name: "Cape Town Sun Never Set",
+    genders: ["men"],
+    category: "Round Neck Tee",
+    categorySlug: "round-neck-tee",
+    price: 280,
+    originalPrice: "550",
+    isBestSeller: true,
+    isNew: false,
+    image: "/images/men/cape-town-sun-never-set-men.png",
+    images: [
+      "/images/men/cape-town-sun-never-set-men.png",
+      "/images/men/cape-town-sun-never-set-men.png",
+      "/images/men/cape-town-sun-never-set-men.png",
+    ],
+    variants: [
+      { color: "Bottle green", size: "XS", quantity: 1 },
+      { color: "Bottle green", size: "S", quantity: 3 },
+      { color: "Bottle green", size: "M", quantity: 2 },
+      { color: "Bottle green", size: "L", quantity: 6 },
+      { color: "Bottle green", size: "XL", quantity: 2 },
+      { color: "Bottle green", size: "XXL", quantity: 3 },
+      { color: "Bottle green", size: "XXXL", quantity: 2 },
+    ],
+    description: "Dedicated to Soweto, the largest and most influential township in Africa, this design features 54 of Soweto’s oldest and most iconic townships. It honours resistance, history, and cultural legacy. Each Kas’lam print is a wearable map of pride — where place becomes identity.",
+   },
+   {
+    id: "22222223333333333703",
+    name: "Cape Town Sun Never Set",
+    genders: ["women"],
+    category: "Round Neck Tee",
+    categorySlug: "round-neck-tee",
+    price: 280,
+    originalPrice: "550",
+    isBestSeller: true,
+    isNew: false,
+    image: "/images/women/cape-town-sun-never-set-women.png",
+    images: [
+      "/images/women/cape-town-sun-never-set-women.png",
+      "/images/women/cape-town-sun-never-set-women.png",
+      "/images/women/cape-town-sun-never-set-women.png",
+    ],
+    variants: [
+      { color: "Bottle green", size: "XS", quantity: 1 },
+      { color: "Bottle green", size: "S", quantity: 3 },
+      { color: "Bottle green", size: "M", quantity: 2 },
+      { color: "Bottle green", size: "L", quantity: 6 },
+      { color: "Bottle green", size: "XL", quantity: 2 },
+      { color: "Bottle green", size: "XXL", quantity: 3 },
+      { color: "Bottle green", size: "XXXL", quantity: 2 },
+    ],
+    description: "Inspired by Cape Town’s unique position at the southern tip of Africa, this print celebrates the idea that the sun sets last here — and symbolically, never truly goes down. “Where the Sun Never Sets” speaks to more than geography. It reflects a city that is constantly alive — vibrant by day, electric by night. A place where creativity, culture, and ambition move around the clock. One of our best-selling prints, this design captures Cape Town as a city of light, motion, and endless possibility.",
+   },
+
+
+
+   
 
 
   
