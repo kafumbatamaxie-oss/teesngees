@@ -18,6 +18,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import MenShop from "./pages/MenShop";
 import WomenShop from "./pages/WomenShop";
 import KidsShop from "./pages/KidsShop";
+import Checkout from "./pages/Checkout"
 import { StoreProvider } from "./context/StoreContext";
 
 
@@ -40,6 +41,7 @@ const App = () => (
             <Route path="/terms" element={<Terms />} />
             <Route path="/about" element={<About />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="/collections" element={<Shop />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="shop/:gender" element={<Shop />} />
