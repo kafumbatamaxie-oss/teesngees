@@ -60,7 +60,7 @@ const Checkout = () => {
 
     try {
       // const baseUrl = window.location.origin;
-      const baseUrl="http://localhost:5173"
+      const baseUrl="https://teesngees.vercel.app"
       console.log(baseUrl)
       
       // Replace this part https://teengees-backend.vercel.app/api/payfast : http://localhost:3000/api/payfast

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { CheckCircle } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 const Success = () => {
   const navigate = useNavigate();
@@ -17,6 +18,11 @@ const Success = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+   useEffect(() => {
+    // Clear cart on mount
+    clearCart();
+  }, [clearCart]);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
