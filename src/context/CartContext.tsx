@@ -108,8 +108,14 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const clearCart = () => {
-    setItems([]);
+    setItems([]); // clears React state
+    try {
+      localStorage.removeItem(CART_STORAGE_KEY); // clears browser storage
+    } catch (error) {
+      console.warn("Failed to clear cart from localStorage:", error);
+    }
   };
+
 
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = items.reduce(

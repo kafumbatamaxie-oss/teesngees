@@ -9,6 +9,7 @@ import { CheckCircle } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
 const Success = () => {
+    const { clearCart } = useCart(); // get clearCart from context
   const navigate = useNavigate();
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
