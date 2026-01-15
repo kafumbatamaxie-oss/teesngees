@@ -21,6 +21,7 @@ import KidsShop from "./pages/KidsShop";
 import Checkout from "./pages/Checkout"
 import Success from "./pages/Success"
 import Error from "./pages/Error"
+import  CheckoutCancel from "./pages/Cancel"
 import { StoreProvider } from "./context/StoreContext";
 
 
@@ -50,6 +51,7 @@ const App = () => (
             <Route path="shop/:gender/:category" element={<Shop />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/success" element={<Success />} />
+            <Route path="/cancel" element={<CheckoutCancel />} />
             <Route path="/error" element={<Error />} />
             <Route path="/wholesale" element={<Partner />} />
             <Route path="*" element={<NotFound />} />
