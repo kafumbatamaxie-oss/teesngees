@@ -19,6 +19,8 @@ import MenShop from "./pages/MenShop";
 import WomenShop from "./pages/WomenShop";
 import KidsShop from "./pages/KidsShop";
 import Checkout from "./pages/Checkout"
+import Success from "./pages/Success"
+import Error from "./pages/Error"
 import { StoreProvider } from "./context/StoreContext";
 
 
@@ -46,6 +48,9 @@ const App = () => (
             <Route path="/shop" element={<Shop />} />
             <Route path="shop/:gender" element={<Shop />} />
             <Route path="shop/:gender/:category" element={<Shop />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/success" element={<Success />} />
+            <Route path="/error" element={<Error />} />
             <Route path="/wholesale" element={<Partner />} />
             <Route path="*" element={<NotFound />} />
             

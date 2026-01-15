@@ -59,36 +59,32 @@ const Checkout = () => {
     setIsLoading(true);
 
     try {
-      const baseUrl = window.location.origin;
+      // const baseUrl = window.location.origin;
+      const baseUrl="http://localhost:5173"
+      console.log(baseUrl)
       
-     // When invoking function
-     const { data, error } = await supabase.functions.invoke("create-payfast-payment", {
-        body: {
-            items: items.map((item) => ({
-            name: item.product.name,
-            quantity: item.quantity,
-            price: item.product.price,
-            size: item.size,
-            color: item.color,
-            })),
-            customerEmail: customerInfo.email,
-            customerFirstName: customerInfo.firstName,
-            customerLastName: customerInfo.lastName,
-            returnUrl: `${baseUrl}/checkout/success`,
-            cancelUrl: `${baseUrl}/checkout/cancel`,
-            notifyUrl: `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/payfast-notify`,
-                sandbox: true, // toggle to false for production/live
-            },
-    });
+      // Replace this part https://teengees-backend.vercel.app/api/payfast : http://localhost:3000/api/payfast
+      const response = await fetch("https://teengees-backend.vercel.app/api/payfast", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            firstName: customerInfo.firstName,
+            lastName: customerInfo.lastName,
+            email: customerInfo.email,
+            totalAmount: totalPrice,
+            orderId: `ORDER-${Date.now()}`,
+            itemName: items.map((i) => i.product.name).join(", "),
+            itemDescription: "Purchase from MyShop",
+          }),
+      });
 
+      const data = await response.json();
 
-      if (error) throw error;
+if (!data.success) throw new Error(data.error || "PayFast request failed");
 
-      if (data.success) {
-        setPayfastUrl(data.payfastUrl);
-        setPayfastData(data.payfastData);
-        // Form will auto-submit via useEffect
-      }
+setPayfastUrl(data.payfastUrl);
+setPayfastData(data.payfastData);
+
     } catch (error: any) {
       console.error("Checkout error:", error);
       toast({
